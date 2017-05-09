@@ -177,7 +177,7 @@ CREATE TABLE Appointment (
 CREATE TABLE MaintainOrder (
 	moID INT NOT NULL,
 	vVIN CHAR(17),
-	moWrittenBy INT NOT NULL.
+	moWrittenBy INT NOT NULL,
 	PRIMARY KEY (moID),
 	FOREIGN KEY (vVIN) REFERENCES Vehicle (vVIN)
 );
@@ -190,7 +190,7 @@ CREATE TABLE MaintainPackageLine (
 );
 
 CREATE TABLE MaintainItem(
-	milID INT NOT NULL,
+	miID INT NOT NULL,
 	miSkill INT NOT NULL,
 	miCost	DECIMAL(10,2) UNSIGNED,
 	mpID INT NOT NULL,
