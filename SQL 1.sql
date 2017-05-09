@@ -8,6 +8,7 @@ CREATE TABLE Customer (
     cFirstName      VARCHAR(42),
     cLastName       VARCHAR(767),
     cDateOfBirth    DATE,
+    cPhoneNumber    VARCHAR(15),
     cEmail          VARCHAR(47),
     PRIMARY KEY (cID),
     INDEX (cFirstName),
@@ -33,14 +34,12 @@ CREATE TABLE PromotionContact (
     FOREIGN KEY (cmType) REFERENCES CommunicationType (cmType)
 );
 
-CREATE TABLE Current (
-    cID                 INT NOT NULL,
-    cAppointmentDate    DATE,
-    cAppointmentTime    TIME,
-    cExpectedTimeTaken TIME,
+CREATE TABLE "CURRENT" (
+    cID            INT NOT NULL,
+    cJoinedDate    DATE,
+    cReferralBenefit    VARCHAR(100),
     PRIMARY KEY (cID),
-    FOREIGN KEY (cID) REFERENCES Customer (cID),
-    INDEX (cAppointmentDate, cAppointmentTime)
+    FOREIGN KEY (cID) REFERENCES Customer (cID)
 );
 
 CREATE TABLE ZIPLocation (
@@ -126,7 +125,8 @@ CREATE TABLE Mechanic (
 CREATE TABLE TrainingSkill (
     tsTrainerID     INT NOT NULL,
     tsTraineeID     INT NOT NULL,
-    tsDate          DATE,
+    tsStartDate          DATE,
+    tsEndDate       DATE,
     tsSkillTrained  VARCHAR(42),
     PRIMARY KEY (tsTrainerID, tsTraineeID, tsDate),
     FOREIGN KEY (tsTrainerID) REFERENCES Mechanic (eID),
@@ -201,6 +201,7 @@ CREATE TABLE MaintainItem(
 CREATE TABLE ItemWork(
 	milID INT NOT NULL,
 	moID INT NOT NULL,
+        iwDate DATE,
 	PRIMARY KEY (milID, moID)
 );
 
@@ -213,3 +214,5 @@ CREATE TABLE JobQueueLine(
 	FOREIGN KEY (eID) REFERENCES Mechanic (eID)
 );
 
+INSERT INTO Customer
+VALUE (1, 'John' , 'White', '2017-01-01', '310-392-3929', 'carluver@gmail.com');
