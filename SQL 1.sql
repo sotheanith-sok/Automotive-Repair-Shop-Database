@@ -37,7 +37,7 @@ CREATE TABLE Current (
     cID                 INT NOT NULL,
     cAppointmentDate    DATE,
     cAppointmentTime    TIME,
-    cExepectedTimeTaken TIME,
+    cExpectedTimeTaken TIME,
     PRIMARY KEY (cID),
     FOREIGN KEY (cID) REFERENCES Customer (cID),
     INDEX (cAppointmentDate, cAppointmentTime)
