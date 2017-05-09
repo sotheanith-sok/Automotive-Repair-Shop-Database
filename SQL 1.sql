@@ -151,3 +151,65 @@ CREATE TABLE SkillsetLine (
     PRIMARY KEY (eID, ssName),
     FOREIGN KEY (slMasteryLevel) REFERENCES MasteryLevel (mlLevel)
 );
+
+CREATE TABLE MaintainPackage (
+	mpID INT NOT NULL,
+	mpName VARCHAR(128) NOT NULL,
+	mpDescription VARCHAR(1337),
+	PRIMARY KEY (mpID)
+);
+
+CREATE TABLE AppointmentStatus (
+	aStatus	VARCHAR(42),
+	PRIMARY KEY (aStatus)
+);
+
+CREATE TABLE Appointment (
+	vVIN	CHAR(17) NOT NULL,
+	aDate	DATE,
+	aTime	TIMESTAMP,
+	aExpectedTime TIMESTAMP,
+	aStatus	VARCHAR(42),
+	PRIMARY KEY (vVIN, aDate),
+	FOREIGN KEY (aStatus) REFERENCES AppointmentStatus (aStatus)
+);
+
+CREATE TABLE MaintainOrder (
+	moID INT NOT NULL,
+	vVIN CHAR(17),
+	moWrittenBy INT NOT NULL.
+	PRIMARY KEY (moID),
+	FOREIGN KEY (vVIN) REFERENCES Vehicle (vVIN)
+);
+
+CREATE TABLE MaintainPackageLine (
+	moID	INT NOT NULL,
+	mpID 	INT NOT NULL,
+	PRIMARY KEY (moID, mpID),
+	FOREIGN KEY (moID) REFERENCES MaintainOrder (moID)
+);
+
+CREATE TABLE MaintainItem(
+	milID INT NOT NULL,
+	miSkill INT NOT NULL,
+	miCost	DECIMAL(10,2) UNSIGNED,
+	mpID INT NOT NULL,
+	PRIMARY KEY (miID),
+	FOREIGN KEY (mpID) REFERENCES MaintainPackage (mpID)	
+);
+
+CREATE TABLE ItemWork(
+	milID INT NOT NULL,
+	moID INT NOT NULL,
+	PRIMARY KEY (milID, moID)
+);
+
+CREATE TABLE JobQueueLine(
+	miID INT NOT NULL,
+	eID INT NOT NULL,
+	jqlDateOfWork DATE,
+	PRIMARY KEY (miID, eID, jqlDateOfWork),
+	FOREIGN KEY (miID) REFERENCES MaintainItem (miID),
+	FOREIGN KEY (eID) REFERENCES Mechanic (eID)
+);
+
