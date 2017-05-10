@@ -6,7 +6,7 @@ CREATE TABLE CommunicationType (
 CREATE TABLE Customer (
     cID             INT NOT NULL,
     cFirstName      VARCHAR(42),
-    cLastName       VARCHAR(767),
+    cLastName       VARCHAR(100),
     cDateOfBirth    DATE,
     cPhoneNumber    VARCHAR(15),
     cEmail          VARCHAR(47),
@@ -34,7 +34,7 @@ CREATE TABLE PromotionContact (
     FOREIGN KEY (cmType) REFERENCES CommunicationType (cmType)
 );
 
-CREATE TABLE "CURRENT" (
+CREATE TABLE Current (
     cID            INT NOT NULL,
     cJoinedDate    DATE,
     cReferralBenefit    VARCHAR(100),
@@ -128,7 +128,7 @@ CREATE TABLE TrainingSkill (
     tsStartDate          DATE,
     tsEndDate       DATE,
     tsSkillTrained  VARCHAR(42),
-    PRIMARY KEY (tsTrainerID, tsTraineeID, tsDate),
+    PRIMARY KEY (tsTrainerID, tsTraineeID, tsStartDate, tsEndDate),
     FOREIGN KEY (tsTrainerID) REFERENCES Mechanic (eID),
     FOREIGN KEY (tsTraineeID) REFERENCES Mechanic (eID)
 );
@@ -199,10 +199,10 @@ CREATE TABLE MaintainItem(
 );
 
 CREATE TABLE ItemWork(
-	milID INT NOT NULL,
+	miID INT NOT NULL,
 	moID INT NOT NULL,
         iwDate DATE,
-	PRIMARY KEY (milID, moID)
+	PRIMARY KEY (miID, moID)
 );
 
 CREATE TABLE JobQueueLine(
@@ -213,6 +213,8 @@ CREATE TABLE JobQueueLine(
 	FOREIGN KEY (miID) REFERENCES MaintainItem (miID),
 	FOREIGN KEY (eID) REFERENCES Mechanic (eID)
 );
+
+
 
 INSERT INTO Customer
 VALUE (1, 'John' , 'White', '2017-01-01', '310-392-3929', 'carluver@gmail.com');
