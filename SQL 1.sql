@@ -62,7 +62,8 @@ CREATE TABLE Address (
     zZIPCode    VARCHAR(10),
     aAddress    VARCHAR(420),
     PRIMARY KEY (cID, aType),
-    FOREIGN KEY (cID) REFERENCES Current (cID)
+    FOREIGN KEY (cID) REFERENCES Current (cID),
+	FOREIGN KEY (zZIPCode) REFERENCES ZIPLocation(zZIPCode)
 );
 
 CREATE TABLE Steady (
@@ -106,7 +107,8 @@ CREATE TABLE Vehicle (
     vfID                        INT NOT NULL,
     PRIMARY KEY (vVIN),
     FOREIGN KEY (cID) REFERENCES Current (cID),
-    FOREIGN KEY (vfID) REFERENCES VehicleFamily (vfID)
+    FOREIGN KEY (vfID) REFERENCES VehicleFamily (vfID),
+	FOREIGN KEY (vRoutineServices) REFERENCES MaintainPackage(mpID)
 );
 
 CREATE TABLE Employee (
@@ -132,7 +134,7 @@ CREATE TABLE Mechanic (
 CREATE TABLE TrainingSkill (
     tsTrainerID     INT NOT NULL,
     tsTraineeID     INT NOT NULL,
-    tsStartDate          DATE,
+    tsStartDate     DATE,
     tsEndDate       DATE,
     tsSkillTrained  VARCHAR(42),
     PRIMARY KEY (tsTrainerID, tsTraineeID, tsStartDate, tsEndDate),
@@ -142,7 +144,8 @@ CREATE TABLE TrainingSkill (
 
 CREATE TABLE MasteryLevel (
     mlLevel INT UNSIGNED NOT NULL,
-    PRIMARY KEY (mlLevel)
+    PRIMARY KEY (mlLevel),
+	CONSTRAINT CHK_mlLevel CHECK (mlLevel>=1 AND mlLevel<=10)
 );
 
 CREATE TABLE Skillset (
@@ -156,7 +159,9 @@ CREATE TABLE SkillsetLine (
     ssName          VARCHAR(42),
     slMasteryLevel  INT UNSIGNED NOT NULL,
     PRIMARY KEY (eID, ssName),
-    FOREIGN KEY (slMasteryLevel) REFERENCES MasteryLevel (mlLevel)
+    FOREIGN KEY (slMasteryLevel) REFERENCES MasteryLevel (mlLevel),
+	FOREIGN KEY (eID) REFERENCES Mechanic (eID),
+	FOREIGN KEY (ssName) REFERENCES Skillset (ssName)
 );
 
 CREATE TABLE MaintainPackage (
@@ -178,15 +183,19 @@ CREATE TABLE Appointment (
 	aExpectedTime TIMESTAMP,
 	aStatus	VARCHAR(42),
 	PRIMARY KEY (vVIN, aDate),
-	FOREIGN KEY (aStatus) REFERENCES AppointmentStatus (aStatus)
+	FOREIGN KEY (aStatus) REFERENCES AppointmentStatus (aStatus),
+	FOREIGN KEY (vVIN) REFERENCES Vehicle(vVIN)
 );
 
 CREATE TABLE MaintainOrder (
 	moID INT NOT NULL,
 	vVIN CHAR(17),
 	moWrittenBy INT NOT NULL,
+	additionalServicePackage INT,
 	PRIMARY KEY (moID),
-	FOREIGN KEY (vVIN) REFERENCES Vehicle (vVIN)
+	FOREIGN KEY (vVIN) REFERENCES Vehicle (vVIN),
+	FOREIGN KEY (moWrittenBy) REFERENCES Technician(eID),
+	FOREIGN KEY (additionalServicePackage) REFERENCES MaintainPackage(mpID)
 );
 
 CREATE TABLE MaintainPackageLine (

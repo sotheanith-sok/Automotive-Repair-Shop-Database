@@ -91,7 +91,17 @@ select p.cID as PremierCustomerID,count(p.cID)*50 as DiscountAmmount from Custom
 '2015-12-31' AND '2016-12-31' group by p.cID) t on t.PremierCustomerID=p1.cID order by (p1.pAnnualFee*12-(IFNULL(t.DiscountAmmount,0))) limit 3;
 
 -- 12.	List the five model, make, and year that have caused the most visits on average to Dave’s automotive per vehicle in the past three years, along with the average number of visits per vehicle.
+select vf.vfModel as Model, vf.vfYear as Year, vf.vfMake as Maker, count(*) as NumberVisited from ItemWork iw right outer join MaintainOrder mo on iw.moID = mo.moID left outer join Vehicle v on mo.vVIN=v.vVIN left outer join VehicleFamily vf on vf.vfID=v.vVIN
+where iw.iwDate>'2013-12-31' group by vf.vfModel,vf.vfYear  order by count(*) limit 5;
+
 -- 13.	Find the mechanic who is mentoring the most other mechanics.  List the skills that the mechanic is passing along to the other mechanics.
+select ts.tsSkillTrained as Skill, e.eName as TrainerName from TrainingSkill ts left outer join Employee e on ts.tsTrainerID=e.eID where ts.tsTrainerID=(
+select t.ID from (select ts1.tsTrainerID as ID, count(ts1.tsTrainerID) as Total from TrainingSkill ts1 group by ts1.tsTrainerID)as t having max(t.Total));
+
 -- 14.	Find the three skills that have the fewest mechanics who have those skills.
+select sl.ssName as SkillName from SkillsetLine sl left outer join Skillset s on sl.ssName=s.ssName group by sl.ssName order by count(sl.ssName) limit 3;
+
 -- 15.	List the employees who are both service technicians as well as mechanics.
+select e.eName as Name from Employee e inner join Technician t on e.eID=t.eID inner join Mechanic m on e.eID=m.eID;
+
 -- 16.	Three additional queries that demonstrate the five additional business rules.  Feel free to create additional views to support these queries if you so desire.
