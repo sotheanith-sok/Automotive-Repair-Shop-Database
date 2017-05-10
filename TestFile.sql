@@ -59,14 +59,16 @@ select e2.eName as Employee2Name, sk2.ssName as Employee2Skill from SkillsetLine
 on t1.Employee1Skill=t2.Employee2Skill where t1.Employee1Name <t2.Employee2Name HAVING Count(*)>2;
 
 -- 6.	For each maintenance package, list the total cost of the maintenance package, as well as a list of all of the maintenance items within that package.
-
 select mi2.miID as MaintainItemName, t.MaintainPackageName as MaintainPackageName, t.TotalCostForThisPackage as TotalPackageCost from (
 select mi.mpID as MaintainPackageID, mp.mpName as MaintainPackageName, sum(mi.miCost) as TotalCostForThisPackage 
 from MaintainItem mi left outer join MaintainPackage mp on mi.mpID=mp.mpID GROUP by (mp.mpID)) as t right outer join MaintainItem mi2 on t.MaintainPackageID=mi2.mpID;
 
 -- 7.	Find all of those mechanics who have one or more maintenance items that they lacked one or more of the necessary skills.
-
+select e.eName as MechanicName, skl.ssName as MechanicSkill, mi.miID as MaintainItemName, mi.miCost as MaintainItemSkillRequire
+from JobQueueLine jql left outer join Employee e on jql.eID=e.eID right outer join SkillsetLine skl on skl.eID=e.eID left outer join MaintainItem mi
+on mi.miID=jql.miID where mi.miCost>skl.slMasteryLevel;
 -- 8.	 List the customers, sorted by the number of loyalty points that they have, from largest to smallest.
+
 -- 9.	List the premier customers and the difference between what they have paid in the past year, versus the services that they actually used during that same time.  List from the customers with the largest difference to the smallest.
 -- 10.	Report on the steady customers based on the net profit that we have made from them over the past year, and the dollar amount of that profit, in order from the greatest to the least.
 -- 11.	List the three premier customers who have paid Dave’s Automotive the greatest amount in the past year, and the sum of their payments over that period.  Be sure to take into account any discounts that they have earned by referring prospective customers.

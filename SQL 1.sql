@@ -192,6 +192,8 @@ CREATE TABLE MaintainPackageLine (
 CREATE TABLE MaintainItem(
 	miID INT NOT NULL,
 	miSkill INT NOT NULL,
+	miName VARCHAR (50),
+	miBuyInPrice DECIMAL (10,2) UNSIGNED,
 	miCost	DECIMAL(10,2) UNSIGNED,
 	mpID INT NOT NULL,
 	PRIMARY KEY (miID),
