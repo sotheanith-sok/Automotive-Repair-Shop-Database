@@ -45,13 +45,27 @@ select c1.cFirstName as Firstname, c1.cLastName as Lastname, sum(mi.miCost) as T
 right outer join MaintainOrder mo on v.vVIN=mo.vVIN right outer join ItemWork iw on mo.moID=iw.moID left outer join MaintainItem mi on iw.miID=mi.miID 
 where iw.iwDate>'2015-01-01' group by (s.cID)) AS f LIMIT 3;
 
-
 -- 4.	Find all of the mechanics who have three or more skills.
+select e.eName as MechanicName, COUNT(sk.eID) as NumberOfSkill from Employee e inner join Mechanic m on e.eID=m.eID right outer join SkillsetLine sk on m.eID=sk.eID GROUP By m.eID HAVING COUNT(sk.eID)>2; 
+
 -- 5.	Find all of the mechanics who have three or more skills in common.
 -- a.	Please give the name of each of the two mechanics sharing 3 or more skills.
 -- b.	Please make sure that any given pair of mechanics only shows up once.
+select * from SkillsetLine sk left outer join Employee e on sk.eID=e.eID;
+select t1.Employee1Name, t2.Employee2Name from (
+select e1.eName as Employee1Name, sk1.ssName as Employee1Skill from SkillsetLine sk1 left outer join Employee e1 on sk1.eID=e1.eID) as t1
+ inner join (
+select e2.eName as Employee2Name, sk2.ssName as Employee2Skill from SkillsetLine sk2 left outer join Employee e2 on sk2.eID=e2.eID) as t2 
+on t1.Employee1Skill=t2.Employee2Skill where t1.Employee1Name <t2.Employee2Name HAVING Count(*)>2;
+
 -- 6.	For each maintenance package, list the total cost of the maintenance package, as well as a list of all of the maintenance items within that package.
+
+select mi2.miID as MaintainItemName, t.MaintainPackageName as MaintainPackageName, t.TotalCostForThisPackage as TotalPackageCost from (
+select mi.mpID as MaintainPackageID, mp.mpName as MaintainPackageName, sum(mi.miCost) as TotalCostForThisPackage 
+from MaintainItem mi left outer join MaintainPackage mp on mi.mpID=mp.mpID GROUP by (mp.mpID)) as t right outer join MaintainItem mi2 on t.MaintainPackageID=mi2.mpID;
+
 -- 7.	Find all of those mechanics who have one or more maintenance items that they lacked one or more of the necessary skills.
+
 -- 8.	 List the customers, sorted by the number of loyalty points that they have, from largest to smallest.
 -- 9.	List the premier customers and the difference between what they have paid in the past year, versus the services that they actually used during that same time.  List from the customers with the largest difference to the smallest.
 -- 10.	Report on the steady customers based on the net profit that we have made from them over the past year, and the dollar amount of that profit, in order from the greatest to the least.

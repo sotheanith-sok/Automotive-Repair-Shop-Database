@@ -26,10 +26,10 @@ CREATE TABLE Prospective (
 
 CREATE TABLE PromotionContact (
     cID     INT NOT NULL,
-    pcDate  DATE,
+    pcDate  DATE NOT NULL,
     pcTime  TIME,
     cmType  VARCHAR(42),
-    PRIMARY KEY (cID),
+    PRIMARY KEY (cID, pcDate),
     FOREIGN KEY (cID) REFERENCES Prospective (cID),
     FOREIGN KEY (cmType) REFERENCES CommunicationType (cmType)
 );
