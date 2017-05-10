@@ -86,11 +86,12 @@ from Customer c inner join Steady s on c.cID=s.cID right outer join Vehicle v on
 right outer join MaintainOrder mo on mo.vVIN=v.vVIN right outer join ItemWork iw on iw.moID=mo.moID left outer join MaintainItem mi on iw.miID=mi.miID GROUP by s.cID;
 
 -- 11.	List the three premier customers who have paid Dave’s Automotive the greatest amount in the past year, and the sum of their payments over that period.  Be sure to take into account any discounts that they have earned by referring prospective customers.
-
+select c1.cFirstName as Firstname, c1.cLastName as Lastname, (p1.pAnnualFee*12-(IFNULL(t.DiscountAmmount,0))) as TotalPaid  from Customer c1 inner join Premier p1 left outer join (
+select p.cID as PremierCustomerID,count(p.cID)*50 as DiscountAmmount from Customer c inner join Premier p on c.cID=p.cID right outer join ReferralBenefitHistory rbh on rbh.cID=p.cID where rbh.rDate between
+'2015-12-31' AND '2016-12-31' group by p.cID) t on t.PremierCustomerID=p1.cID order by (p1.pAnnualFee*12-(IFNULL(t.DiscountAmmount,0))) limit 3;
 
 -- 12.	List the five model, make, and year that have caused the most visits on average to Dave’s automotive per vehicle in the past three years, along with the average number of visits per vehicle.
 -- 13.	Find the mechanic who is mentoring the most other mechanics.  List the skills that the mechanic is passing along to the other mechanics.
 -- 14.	Find the three skills that have the fewest mechanics who have those skills.
 -- 15.	List the employees who are both service technicians as well as mechanics.
 -- 16.	Three additional queries that demonstrate the five additional business rules.  Feel free to create additional views to support these queries if you so desire.
-

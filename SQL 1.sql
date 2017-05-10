@@ -17,10 +17,10 @@ CREATE TABLE Customer (
 );
 
 CREATE TABLE ReferralBenefitHistory (
-        cID         INT NOT NULL, 
+    cID         INT NOT NULL, 
 	rBenefit    VARCHAR (50) NOT NULL,
 	rDate       DATE NOT NULL,
-        rFlag       VARCHAR (50),
+    rFlag       VARCHAR (50),
 	PRIMARY KEY (cID, rBenefit, rDate),
 	FOREIGN KEY (cID) REFERENCES Customer (cID)
 );
