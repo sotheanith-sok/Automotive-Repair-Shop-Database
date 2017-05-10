@@ -16,6 +16,14 @@ CREATE TABLE Customer (
     INDEX (cEmail)
 );
 
+CREATE TABLE ReferralBenefitHistory (
+        cID         INT NOT NULL, 
+	rBenefit    VARCHAR (50) NOT NULL,
+	rDate       DATE NOT NULL,
+        rFlag       VARCHAR (50),
+	PRIMARY KEY (cID, rBenefit, rDate),
+	FOREIGN KEY (cID) REFERENCES Customer (cID)
+);
 CREATE TABLE Prospective (
     cID             INT NOT NULL,
     pReferralName   VARCHAR(9001),
@@ -37,7 +45,6 @@ CREATE TABLE PromotionContact (
 CREATE TABLE Current (
     cID            INT NOT NULL,
     cJoinedDate    DATE,
-    cReferralBenefit    VARCHAR(100),
     PRIMARY KEY (cID),
     FOREIGN KEY (cID) REFERENCES Customer (cID)
 );

@@ -67,15 +67,30 @@ from MaintainItem mi left outer join MaintainPackage mp on mi.mpID=mp.mpID GROUP
 select e.eName as MechanicName, skl.ssName as MechanicSkill, mi.miID as MaintainItemName, mi.miCost as MaintainItemSkillRequire
 from JobQueueLine jql left outer join Employee e on jql.eID=e.eID right outer join SkillsetLine skl on skl.eID=e.eID left outer join MaintainItem mi
 on mi.miID=jql.miID where mi.miCost>skl.slMasteryLevel;
+
 -- 8.	 List the customers, sorted by the number of loyalty points that they have, from largest to smallest.
+select c.cFirstName as Firstname, c.cLastName as Lastname, s.sLoyaltyPoints as LoyaltyPoints from Customer c inner join Steady s on c.cID=s.cID Order by s.sLoyaltyPoints ASC;
 
 -- 9.	List the premier customers and the difference between what they have paid in the past year, versus the services that they actually used during that same time.  List from the customers with the largest difference to the smallest.
+select c.cFirstName as Firstname, c.cLastName as Lastname, (p.pAnnualFee-SUM(mi.miCost)) as TheDifference from 
+Customer c inner join 
+Premier p on c.cID=p.cID right outer join 
+Vehicle v on p.cID=v.cID right outer join 
+MaintainOrder mo on v.vVIN=mo.vVIN right outer join 
+ItemWork iw on mo.moID=iw.moID left outer join 
+MaintainItem mi on mi.miID=iw.moID GROUP by p.cID  ORDER BY TheDifference DESC;
+
 -- 10.	Report on the steady customers based on the net profit that we have made from them over the past year, and the dollar amount of that profit, in order from the greatest to the least.
+select c.cFirstName as Firstname, c.cLastName, (SUM(mi.miCost)-SUM(mi.miBuyInPrice)) as NetProfit, ((SUM(mi.miCost)-SUM(mi.miBuyInPrice))/SUM(mi.miBuyInPrice)*100) as PercentProfit 
+from Customer c inner join Steady s on c.cID=s.cID right outer join Vehicle v on s.cID=v.cID 
+right outer join MaintainOrder mo on mo.vVIN=v.vVIN right outer join ItemWork iw on iw.moID=mo.moID left outer join MaintainItem mi on iw.miID=mi.miID GROUP by s.cID;
+
 -- 11.	List the three premier customers who have paid Dave’s Automotive the greatest amount in the past year, and the sum of their payments over that period.  Be sure to take into account any discounts that they have earned by referring prospective customers.
+
+
 -- 12.	List the five model, make, and year that have caused the most visits on average to Dave’s automotive per vehicle in the past three years, along with the average number of visits per vehicle.
 -- 13.	Find the mechanic who is mentoring the most other mechanics.  List the skills that the mechanic is passing along to the other mechanics.
 -- 14.	Find the three skills that have the fewest mechanics who have those skills.
 -- 15.	List the employees who are both service technicians as well as mechanics.
 -- 16.	Three additional queries that demonstrate the five additional business rules.  Feel free to create additional views to support these queries if you so desire.
-
 
