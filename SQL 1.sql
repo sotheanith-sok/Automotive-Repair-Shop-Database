@@ -26,7 +26,7 @@ CREATE TABLE ReferralBenefitHistory (
 );
 CREATE TABLE Prospective (
     cID             INT NOT NULL,
-    pReferralName   VARCHAR(9001),
+    pReferralName   VARCHAR(100),
     pDeadFlag       TINYINT,
     PRIMARY KEY (cID),
     FOREIGN KEY (cID) REFERENCES Customer (cID)
@@ -51,7 +51,7 @@ CREATE TABLE Current (
 
 CREATE TABLE ZIPLocation (
     zZIPCode            VARCHAR(10) NOT NULL,
-    zCity               VARCHAR(420) NOT NULL,
+    zCity               VARCHAR(100) NOT NULL,
     zState              VARCHAR(42) NOT NULL,
     PRIMARY KEY (zZIPCode)
 );
@@ -60,10 +60,10 @@ CREATE TABLE Address (
     cID         INT NOT NULL,
     aType       VARCHAR(42),
     zZIPCode    VARCHAR(10),
-    aAddress    VARCHAR(420),
+    aAddress    VARCHAR(100),
     PRIMARY KEY (cID, aType),
     FOREIGN KEY (cID) REFERENCES Current (cID),
-	FOREIGN KEY (zZIPCode) REFERENCES ZIPLocation(zZIPCode)
+    FOREIGN KEY (zZIPCode) REFERENCES ZIPLocation(zZIPCode)
 );
 
 CREATE TABLE Steady (
@@ -97,18 +97,23 @@ CREATE TABLE VehicleFamily (
     INDEX (vfMake),
     INDEX (vfModel)
 );
-
+CREATE TABLE MaintainPackage (
+	mpID INT NOT NULL,
+	mpName VARCHAR(128) NOT NULL,
+	mpDescription VARCHAR(1337),
+	PRIMARY KEY (mpID)
+);
 CREATE TABLE Vehicle (
     vVIN                        CHAR(17) NOT NULL,
     vMileage                    MEDIUMINT UNSIGNED NOT NULL,
     cID                         INT NOT NULL,
     vExpectedMileageThisYear    MEDIUMINT UNSIGNED,
-    vRoutineServices            VARCHAR(1701),
+    vRoutineServices            INT(100) NOT NULL,
     vfID                        INT NOT NULL,
     PRIMARY KEY (vVIN),
     FOREIGN KEY (cID) REFERENCES Current (cID),
     FOREIGN KEY (vfID) REFERENCES VehicleFamily (vfID),
-	FOREIGN KEY (vRoutineServices) REFERENCES MaintainPackage(mpID)
+    FOREIGN KEY (vRoutineServices) REFERENCES MaintainPackage (mpID)
 );
 
 CREATE TABLE Employee (
@@ -164,13 +169,6 @@ CREATE TABLE SkillsetLine (
 	FOREIGN KEY (ssName) REFERENCES Skillset (ssName)
 );
 
-CREATE TABLE MaintainPackage (
-	mpID INT NOT NULL,
-	mpName VARCHAR(128) NOT NULL,
-	mpDescription VARCHAR(1337),
-	PRIMARY KEY (mpID)
-);
-
 CREATE TABLE AppointmentStatus (
 	aStatus	VARCHAR(42),
 	PRIMARY KEY (aStatus)
@@ -198,13 +196,6 @@ CREATE TABLE MaintainOrder (
 	FOREIGN KEY (additionalServicePackage) REFERENCES MaintainPackage(mpID)
 );
 
-CREATE TABLE MaintainPackageLine (
-	moID	INT NOT NULL,
-	mpID 	INT NOT NULL,
-	PRIMARY KEY (moID, mpID),
-	FOREIGN KEY (moID) REFERENCES MaintainOrder (moID)
-);
-
 CREATE TABLE MaintainItem(
 	miID INT NOT NULL,
 	miSkill INT NOT NULL,
@@ -220,7 +211,10 @@ CREATE TABLE ItemWork(
 	miID INT NOT NULL,
 	moID INT NOT NULL,
         iwDate DATE,
-	PRIMARY KEY (miID, moID)
+	PRIMARY KEY (miID, moID),
+	FOREIGN KEY (miID) REFERENCES MaintainItem(miID),
+	FOREIGN KEY (moID) REFERENCES MaintainOrder (moID)
+	
 );
 
 CREATE TABLE JobQueueLine(
@@ -232,7 +226,11 @@ CREATE TABLE JobQueueLine(
 	FOREIGN KEY (eID) REFERENCES Mechanic (eID)
 );
 
+CREATE TABLE MaintainPackageLine (
+	moID	INT NOT NULL,
+	mpID 	INT NOT NULL,
+	PRIMARY KEY (moID, mpID),
+	FOREIGN KEY (moID) REFERENCES MaintainOrder (moID),
+	FOREIGN KEY (mpID) REFERENCES MaintainItem (mpID)
+);
 
-
-INSERT INTO Customer
-VALUE (1, 'John' , 'White', '2017-01-01', '310-392-3929', 'carluver@gmail.com');
