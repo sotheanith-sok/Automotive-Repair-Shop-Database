@@ -84,3 +84,10 @@ INSERT INTO VehicleFamily values
 	(540,'Nissan','Pickup','2004'),
 	(920,'Lexus','GX470','2005')
 ;
+INSERT INTO ZIPLocation values
+    ('17042','Lebanon','PA'),
+('16001','Butler','PA'),
+('07093','West New York','NJ'),
+('07501','Paterson','NJ'),
+('44256','Medina','OH')
+;
