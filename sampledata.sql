@@ -4,9 +4,9 @@ INSERT INTO MaintainPackage
         (2, 'ECU Check', 'Investigate ECU corruptions or faults'),
         (3, 'Transmission Check Package', 'Investigate transmission issues'),
 	(4, 'Oil Check Package', 'Investigate oil related issues'),
-	(5, 'Airconditioner Check Package', 'Investigate airconditioner issues'),
+	(5, 'Air Conditioner Check Package', 'Investigate air conditioner issues'),
 	(6, 'Wheel Check Package', 'Investigate tire issues'),
-	(7, 'Basic Maintain Package','Rountine Service such as normal oil change, tire aligments, and fluid check.')
+	(7, 'Basic Maintainence Package','Rountine Service such as normal oil change, tire aligments, and fluid check.')
 ;
 
 INSERT INTO AppointmentStatus
@@ -96,7 +96,7 @@ INSERT INTO Premier
 	(24, 500, '2017-12-01', 50.00),
 	(42, 100,'2017-07-01', 100.00),
 	(50, 268,'2017-09-01', 268.00)
-	;
+;
 
 INSERT INTO PriceIncrease
     VALUES
@@ -105,14 +105,14 @@ INSERT INTO PriceIncrease
 
 INSERT INTO VehicleFamily
     VALUES
-	(398,'Toyota','Camery','2015'),
-	(378,'Toyota','4Runner','2007'),
-	(488,'Toyota','Avalon','1995'),
-	(118,'Nissan','Altima','2017'),
-	(770,'BMW','318','2002'),
-	(906,'Nissan','Cube','2006'),
-	(540,'Nissan','Pickup','2004'),
-	(920,'Lexus','GX470','2005')
+	(398, 'Toyota', 'Camery', '2015'),
+	(378, 'Toyota', '4Runner', '2007'),
+	(488, 'Toyota', 'Avalon', '1995'),
+	(118, 'Nissan', 'Altima', '2017'),
+	(770, 'BMW', '318', '2002'),
+	(906, 'Nissan', 'Cube', '2006'),
+	(540, 'Nissan', 'Pickup', '2004'),
+	(920, 'Lexus', 'GX470', '2005')
 ;
 
 INSERT INTO ZIPLocation
@@ -134,68 +134,74 @@ INSERT INTO ZIPLocation
 
 INSERT INTO Address
     VALUES
-	(17,'Home','17042','123 6th St'),
-	(94,'Home','16001','4 Goldfield Rd.'),
-	(57,'Home','07093','71 Pilgrim Avenue'),
-	(24,'Home','44256','44 Shirley Ave.'),
-	(42,'Home','07501', '70 Bowman St.'),
-	(50,'Home','07093','514 S. Magnolia St.'),
-	(17,'Workplace','17042','65 Bayberry Street'),
-	(17,'Warehouse','17042','8320 West Border Ave.'),
-	(94,'Workplace','16001','225 Pawnee Ave.')
+	(17,'Home', '17042', '123 6th St'),
+	(94,'Home', '16001', '4 Goldfield Rd.'),
+	(57,'Home', '07093', '71 Pilgrim Avenue'),
+	(24,'Home', '44256', '44 Shirley Ave.'),
+	(42,'Home', '07501', '70 Bowman St.'),
+	(50,'Home', '07093', '514 S. Magnolia St.'),
+	(17,'Workplace', '17042', '65 Bayberry Street'),
+	(17,'Warehouse', '17042', '8320 West Border Ave.'),
+	(94,'Workplace', '16001', '225 Pawnee Ave.')
 ;
 
 INSERT INTO Vehicle
     VALUES
-	('4T1BF3EK3AU552262','2695616',17,'6732',7,378),
-	('1FTHF25H1PNA40810','14840',94,'11528',7,488),
-	('1GNSC5EC8FR580741','102606',57,'7698',7,906),
-	('2B4GP44R3XR290659','493285',17,'12512',7,920),
-	('1FMYU04161KF01101','476524',24,'11164',7,118),
-	('1FTSF31F22E716686','33290',42,'9073',7,488),
-	('2FZACFCT44AN00194','118918',17,'13031',7,378),
-	('1FMCU0G97DUC71489','193113',94,'9427',7,118),
-	('WA1VFAFL1DA140855','230357',57,'7934',7,378),
-	('1GC2CVCG1CZ106012','228538',42,'14124',7,378)
+	('4T1BF3EK3AU552262', '2695616', 17, '6732', 7 ,378),
+	('1FTHF25H1PNA40810', '14840', 94, '11528', 7, 488),
+	('1GNSC5EC8FR580741', '102606', 57, '7698', 7, 906),
+	('2B4GP44R3XR290659', '493285', 17, '12512', 7, 920),
+	('1FMYU04161KF01101', '476524', 24, '11164', 7, 118),
+	('1FTSF31F22E716686', '33290', 42, '9073', 7, 488),
+	('2FZACFCT44AN00194', '118918', 17, '13031', 7, 378),
+	('1FMCU0G97DUC71489', '193113', 94, '9427', 7, 118),
+	('WA1VFAFL1DA140855', '230357', 57, '7934', 7, 378),
+	('1GC2CVCG1CZ106012', '228538', 42, '14124', 7, 378)
 ;
-INSERT INTO Appointment values 
-	('4T1BF3EK3AU552262','2017-06-5','08:30:00','0:30:00','FUTURE'),
-	('4T1BF3EK3AU552262','2017-04-5','09:00:00','0:45:00','APPOINTMENT KEPT'),
-	('4T1BF3EK3AU552262','2017-03-5','10:25:00','0:30:00','APPOINTMENT KEPT'),
-	('1FTHF25H1PNA40810','2017-06-7','11:24:00','0:30:00','CANCELLED'),
-	('1GNSC5EC8FR580741','2017-06-8','12:45:00','0:45:00','FUTURE'),
-	('2B4GP44R3XR290659','2017-06-9','13:30:00','0:30:00','FUTURE'),
-	('1FMYU04161KF01101','2017-06-15','14:45:00','0:45:00','FUTURE'),
-	('1GC2CVCG1CZ106012','2017-06-20','15:15:00','0:30:00','FUTURE'),
-	('4T1BF3EK3AU552262','2017-06-24','16:00:00','0:45:00','FUTURE'),
-	('1FTSF31F22E716686','2017-06-27','8:45:00','0:30:00','FUTURE'),
-	('4T1BF3EK3AU552262','2017-06-30','9:15:00','1:00:00','FUTURE'),
-	('2FZACFCT44AN00194','2017-06-21','10:00:00','0:15:00','FUTURE'),
-	('1FMCU0G97DUC71489','2017-06-17','11:30:00','0:30:00','FUTURE')
+INSERT INTO Appointment
+    VALUES
+	('4T1BF3EK3AU552262', '2017-06-5', '08:30:00', '0:30:00', 'FUTURE'),
+	('4T1BF3EK3AU552262', '2017-04-5', '09:00:00', '0:45:00', 'APPOINTMENT KEPT'),
+	('4T1BF3EK3AU552262', '2017-03-5', '10:25:00', '0:30:00', 'APPOINTMENT KEPT'),
+	('1FTHF25H1PNA40810', '2017-06-7', '11:24:00', '0:30:00', 'CANCELLED'),
+	('1GNSC5EC8FR580741', '2017-06-8', '12:45:00', '0:45:00', 'FUTURE'),
+	('2B4GP44R3XR290659', '2017-06-9', '13:30:00', '0:30:00', 'FUTURE'),
+	('1FMYU04161KF01101', '2017-06-15', '14:45:00', '0:45:00', 'FUTURE'),
+	('1GC2CVCG1CZ106012', '2017-06-20', '15:15:00', '0:30:00', 'FUTURE'),
+	('4T1BF3EK3AU552262', '2017-06-24', '16:00:00', '0:45:00', 'FUTURE'),
+	('1FTSF31F22E716686', '2017-06-27', '8:45:00', '0:30:00', 'FUTURE'),
+	('4T1BF3EK3AU552262', '2017-06-30', '9:15:00', '1:00:00', 'FUTURE'),
+	('2FZACFCT44AN00194', '2017-06-21', '10:00:00', '0:15:00', 'FUTURE'),
+	('1FMCU0G97DUC71489', '2017-06-17', '11:30:00', '0:30:00', 'FUTURE')
 ;
-INSERT INTO Employee values
-(1,'Seyyed Ortzi', 17, '2001-05-4'),
-(2,'Sead Huey', 12, '2002-12-24'),
-(3,'Clive Finnagán', 12.57, '2010-07-21'),
-(4,'Nerses Teobaldo', 18.42, '2004-1-15'),
-(5,'Stuart Evaristo', 20.47, '2001-7-2'),
-(6,'Filip Ermanno', 19.77, '2009-8-2'),
-(7,'Hüseyn Kay', 30.78, '2001-5-27'),
-(8,'Andro Pere', 25.97, '2003-7-26'),
-(9,'Evgeny Octave', 31.44, '2001-2-28'),
-(10,'Aeron Amariah', 22.00, '2003-3-25')
-;
-INSERT INTO Technician values 
-(7),
-(9),
-(8);
-INSERT INTO Mechanic values
-(1),
-(2), 
-(3), 
-(4), 
-(5), 
-(6), 
-(10)
-; 
 
+INSERT INTO Employee
+    VALUES
+        (1,'Seyyed Ortzi', 17, '2001-05-4'),
+        (2,'Sead Huey', 12, '2002-12-24'),
+        (3,'Clive Finnagán', 12.57, '2010-07-21'),
+        (4,'Nerses Teobaldo', 18.42, '2004-1-15'),
+        (5,'Stuart Evaristo', 20.47, '2001-7-2'),
+        (6,'Filip Ermanno', 19.77, '2009-8-2'),
+        (7,'Hüseyn Kay', 30.78, '2001-5-27'),
+        (8,'Andro Pere', 25.97, '2003-7-26'),
+        (9,'Evgeny Octave', 31.44, '2001-2-28'),
+        (10,'Aeron Amariah', 22.00, '2003-3-25')
+;
+
+INSERT INTO Technician
+    VALUES
+        (7),
+        (9),
+        (8)
+;
+INSERT INTO Mechanic
+    VALUES
+        (1),
+        (2), 
+        (3), 
+        (4), 
+        (5), 
+        (6), 
+        (10)
+;
