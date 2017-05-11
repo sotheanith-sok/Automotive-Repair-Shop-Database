@@ -61,3 +61,16 @@ INSERT INTO ReferralBenefitHistory values
     (94, 'Free Oil Change','2012-06-13','Yes'),
     (94, 'Free Oil Change','2017-05-10','No')
 ;
+INSERT INTO Steady values
+	(94, 106),
+	(57, 50)
+;
+INSERT INTO Premier values
+	(17,198,'2017-06-12', 198.00),
+	(24, 500,'2017-12-01',50.00),
+	(42, 100,'2017-07-01',100.00),
+	(50, 268,'2017-09-01',268.00)
+	;
+INSERT INTO PriceIncrease values
+	(24,900, 'Total Lost Collision')
+;
