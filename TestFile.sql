@@ -7,9 +7,13 @@ UNION select cFirstName, cLastName,'Steady'as Category, (2017-YEAR(c4.cJoinedDat
 
 -- 2.	Customer_addresses_v – for each customer, indicate whether they are an individual or a corporate account, and display all of the addresses that we are managing for that customer.
 create view Customer_addresses_v as 
-select cFirstName,cLastName,'Individual' as Category, aType, aAddress, zZIPCode from Address left outer join Customer on Address.cID=Customer.cID GROUP by Address.cID Having count(Address.cID)=1
+select cFirstName as FirstName,cLastName as LastName,'Individual' as AccountType, aType as AddressType, aAddress as StreetAddress,zip.zCity as City, zip.zState as State,
+ zip.zZIPCode as Zipcode
+from Address left outer join Customer on Address.cID=Customer.cID left outer join ZIPLocation zip on Address.zZIPCode=zip.zZIPCode GROUP by Address.cID Having count(Address.cID)=1
 UNION 
-select c.cFirstName,c.cLastName,'Corporation' as Category, a.aType, a.aAddress, a.zZIPCode from Address a left outer join Customer c on a.cID=c.cID
+select c.cFirstName as FirstName, c.cLastName as LastName,'Corporation' as AccountType, a.aType as AddressType, a.aAddress as StreetAddress,zip1.zCity as City, zip1.zState as State,
+ zip1.zZIPCode as Zipcode
+from Address a left outer join Customer c on a.cID=c.cID left outer join ZIPLocation zip1 on zip1.zZIPCode=a.zZIPCode
 where a.cID in (select c1.cID from Address a1
 left outer join Customer c1 on a1.cID=c1.cID GROUP BY c1.cFirstName HAVING COUNT(a1.cID)>1 );
 
@@ -27,7 +31,8 @@ left outer join Vehicle v on mo.vVin=v.vVin left outer join Customer c on c.cID=
 c2.cID=p.cID group by c.cID;
 -- 5.	Prospective_resurrection_v – List all of the prospective customers who have had three or more contacts, and for whom the most recent contact was more than a year ago.  They might be ripe for another attempt.
 create view Prospective_resurrection_v as
-select c1.cFirstName, c1.cLastName from Customer c1 where c1.cID NOT IN (select c2.cID from Customer c2 natural join PromotionContact p2 where p2.pcDate>'2017-09-05');
+select c1.cFirstName, c1.cLastName from Customer c1 inner join Prospective p1 on c1.cID=p1.cID where c1.cID NOT IN 
+(select p.cID from PromotionContact pc left outer join Prospective p on pc.cID=p.cID where pc.pcDate>'2013-12-31') AND p1.pDeadFlag=1;
 
 -- Queries
 -- Write the SQL to perform the following queries.  If it seems to you that it would make the queries easier to write and understand, please feel free to write additional views to facilitate your query writing.  Each query is a single SQL statement.  Never return just the ID of a given thing in your queries, always do any necessary joins so that you can display a proper name.  I will dock points for using literals in your queries.  For instance, use the now() function to get the current date when asked to find visits within the past year, do not use a literal and put in the due date of the assignment for the current date.  Be sure that the sample data that you insert into your tables is adequate to return some data from each of these queries:
