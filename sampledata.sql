@@ -256,17 +256,27 @@ INSERT INTO Skillset
         ('Tire balancing', 'Tire balancing'),
         ('Freon exchange', 'Flush freon from air conditioning system and replace'),
         ('Brake rotor resurfacing', 'Resurfacing the brake rotors'),
-        ('Brake fluid flush', 'Flush brake fluid from system and replace')
+        ('Brake fluid flush', 'Flush brake fluid from system and replace'),
+		('Engine fixer', 'Fix the engine in cars'),
+		('Transmission fixer', 'Fix tranmission related issue')
 ;
 
 INSERT INTO SkillsetLine
     VALUES
         (1, 'Oil & filter', 3),
         (1, 'Tire rotation', 10),
+		(1, 'Tire balancing',2),
         (2, 'Brake fluid flush', 7),
         (3, 'Brake rotor resurfacing', 2),
         (4, 'Tire balancing', 4),
         (5, 'Freon exchange', 10),
         (6, 'Tire rotation', 1),
-        (10, 'Oil & filter', 10)
+		(6, 'Oil & filter', 5),
+        (6, 'Tire rotation', 1),
+		(6, 'Tire balancing',3),
+        (10, 'Oil & filter', 10),
+		(10,'Engine fixer'),
+		(10,'Transmission fixer')
+		
+		
 ;
