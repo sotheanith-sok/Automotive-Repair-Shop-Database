@@ -1,3 +1,4 @@
+--DDL Used to great table--
 CREATE TABLE CommunicationType (
     cmType          VARCHAR(42),
     PRIMARY KEY (cmType)

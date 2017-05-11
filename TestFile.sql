@@ -101,8 +101,10 @@ select p.cID as PremierCustomerID,count(p.cID)*50 as DiscountAmmount from Custom
 '2015-12-31' AND '2016-12-31' group by p.cID) t on t.PremierCustomerID=p1.cID order by (p1.pAnnualFee*12-(IFNULL(t.DiscountAmmount,0)))Desc limit 3;
 
 -- 12.	List the five model, make, and year that have caused the most visits on average to Dave’s automotive per vehicle in the past three years, along with the average number of visits per vehicle.
-select vf.vfModel as Model, vf.vfYear as Year, vf.vfMake as Maker, count(*) as NumberVisited from ItemWork iw right outer join MaintainOrder mo on iw.moID = mo.moID left outer join Vehicle v on mo.vVIN=v.vVIN left outer join VehicleFamily vf on vf.vfID=v.vVIN
-where iw.iwDate>'2013-12-31' group by vf.vfModel,vf.vfYear  order by count(*) limit 5;
+select vf.vfModel as Model, vf.vfYear as Year, vf.vfMake as Maker, count(CONCAT(vf.vfModel, vf.vfYear)) as 
+NumberVisited from ItemWork iw left outer join MaintainOrder mo on iw.moID = mo.moID left outer join Vehicle v on mo.vVIN=v.vVIN 
+left outer join VehicleFamily vf on vf.vfID=v.vfID
+where iw.iwDate>'2013-12-31' group by CONCAT(vf.vfModel, vf.vfYear) order by count(CONCAT(vf.vfModel, vf.vfYear)) DESC limit 5;
 
 -- 13.	Find the mechanic who is mentoring the most other mechanics.  List the skills that the mechanic is passing along to the other mechanics.
 select ts.tsSkillTrained as Skill, e.eName as TrainerName from TrainingSkill ts left outer join Employee e on ts.tsTrainerID=e.eID where ts.tsTrainerID=(

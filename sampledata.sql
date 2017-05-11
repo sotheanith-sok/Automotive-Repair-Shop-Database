@@ -1,8 +1,10 @@
+--DML used to insert data--
+
 INSERT INTO MaintainPackage
     VALUES
-        (1, 'Engine Check Package', 'Investigate engine issues'),
-        (2, 'ECU Check', 'Investigate ECU corruptions or faults'),
-        (3, 'Transmission Check Package', 'Investigate transmission issues'),
+	(1, 'Engine Check Package', 'Investigate engine issues'),
+	(2, 'ECU Check', 'Investigate ECU corruptions or faults'),
+	(3, 'Transmission Check Package', 'Investigate transmission issues'),
 	(4, 'Oil Check Package', 'Investigate oil related issues'),
 	(5, 'Air Conditioner Check Package', 'Investigate air conditioner issues'),
 	(6, 'Wheel Check Package', 'Investigate tire issues'),
@@ -12,42 +14,42 @@ INSERT INTO MaintainPackage
 
 INSERT INTO AppointmentStatus
     VALUES
-        ('FUTURE'),
-        ('APPOINTMENT KEPT'),
-        ('CANCELLED')
+	('FUTURE'),
+	('APPOINTMENT KEPT'),
+	('CANCELLED')
 ;
 
 INSERT INTO CommunicationType
     VALUES
-        ('Email'),
-        ('Phone Call')
+	('Email'),
+	('Phone Call')
 ;
 
 INSERT INTO Customer
     VALUES
-        (50, 'Timmy', 'Carder', '1982-09-22', '329-323-4512', 'nottheprez@gmail.com'),
-        (42, 'Haddam', 'Sussein', '1967-11-01', '323-315-9695', 'bestkingevar@gmail.com'),
-        (24, 'Matoi', 'Ryuko', '1997-01-02', '928-888-8251', 'sailorclothes@gmail.com'),
-        (57, 'Celino', 'Barnes', '1983-08-15', '800-888-8888', 'injuryatturnyfam@hotmail.com'),
-        (94, 'Imi', 'Mopkins', '1965-03-02', '123-456-7890', 'reelprufessurlelz@gmail.com'),
-        (17, 'Rolph', 'Ormond', '1898-04-10', '202-555-0123', 'RolphOrmond@gmail.com'),
-        (5, 'Moïse', 'Gundahar', '1975-08-25', '202-555-0110', 'MoïseGundahar@gmail.com'),
-        (55, 'Arminius', 'Donat', '1982-03-21', '803-261-8908', 'ArminiusDonat@gmail.com'),
-        (1, 'Sukarno', 'Nadir', '1957-12-12', '513-455-3891', 'SukarnoNadir@gmail.com'),
-        (100, 'J\'onn', 'J\'onzz', '1955-11-15', '619-555-4156', 'jjonzz@deo.gov'),
-        (101, 'Tony', 'Stark', '1970-05-29', '212-555-4164', 'tony@stark.com'),
-        (102, 'Ami', 'Mizuno', '1978-09-10', '657-555-5156', 'amimizuno@geocities.com'),
-        (103, 'Selina', 'Kyle', '1986-03-15', '212-555-4235', 'selinakyle@yahoo.com'),
-        (104, 'Bruce', 'Wayne', '1975-04-29', '212-555-2346', 'bwayne@wayneenterprises.com')
+	(50, 'Timmy', 'Carder', '1982-09-22', '329-323-4512', 'nottheprez@gmail.com'),
+	(42, 'Haddam', 'Sussein', '1967-11-01', '323-315-9695', 'bestkingevar@gmail.com'),
+	(24, 'Matoi', 'Ryuko', '1997-01-02', '928-888-8251', 'sailorclothes@gmail.com'),
+	(57, 'Celino', 'Barnes', '1983-08-15', '800-888-8888', 'injuryatturnyfam@hotmail.com'),
+	(94, 'Imi', 'Mopkins', '1965-03-02', '123-456-7890', 'reelprufessurlelz@gmail.com'),
+	(17, 'Rolph', 'Ormond', '1898-04-10', '202-555-0123', 'RolphOrmond@gmail.com'),
+	(5, 'Moïse', 'Gundahar', '1975-08-25', '202-555-0110', 'MoïseGundahar@gmail.com'),
+	(55, 'Arminius', 'Donat', '1982-03-21', '803-261-8908', 'ArminiusDonat@gmail.com'),
+	(1, 'Sukarno', 'Nadir', '1957-12-12', '513-455-3891', 'SukarnoNadir@gmail.com'),
+	(100, 'J\'onn', 'J\'onzz', '1955-11-15', '619-555-4156', 'jjonzz@deo.gov'),
+	(101, 'Tony', 'Stark', '1970-05-29', '212-555-4164', 'tony@stark.com'),
+	(102, 'Ami', 'Mizuno', '1978-09-10', '657-555-5156', 'amimizuno@geocities.com'),
+	(103, 'Selina', 'Kyle', '1986-03-15', '212-555-4235', 'selinakyle@yahoo.com'),
+	(104, 'Bruce', 'Wayne', '1975-04-29', '212-555-2346', 'bwayne@wayneenterprises.com')
 ;
 
 INSERT INTO Prospective
     VALUES
-        (1, 'Timmy', TRUE),
-        (5, 'Haddam', FALSE),
-        (55, 'Matoi', TRUE),
-        (101, 'Steve Rogers', TRUE),
-        (100, 'Kara Danvers', FALSE)
+	(1, 'Timmy', TRUE),
+	(5, 'Haddam', FALSE),
+	(55, 'Matoi', TRUE),
+	(101, 'Steve Rogers', TRUE),
+	(100, 'Kara Danvers', FALSE)
 ;
 
 INSERT INTO PromotionContact
@@ -58,9 +60,9 @@ INSERT INTO PromotionContact
 	(5, '2014-05-15', '1:00:00', 'Email'),
 	(5, '2012-07-17', '3:30:00', 'Phone Call'),
 	(55, '2017-05-9', '10:12:00', 'Email'),
-        (101, '2008-05-02', '13:37:00', 'Email'),
-        (101, '2010-05-07', '17:01:00', 'Phone Call'),
-        (101, '2013-05-03', '12:00:00', 'Email')
+	(101, '2008-05-02', '13:37:00', 'Email'),
+	(101, '2010-05-07', '17:01:00', 'Phone Call'),
+	(101, '2013-05-03', '12:00:00', 'Email')
 ;
 
 INSERT INTO Current
@@ -73,16 +75,15 @@ INSERT INTO Current
 	(50, '2013-12-12')
 ;
 
-INSERT INTO ReferralBenefitHistory
-    VALUES
-        (17, '50$ off Next Monthly Payment', '2012-05-10', 'Yes'),
-        (17, '50$ off Next Monthly Payment', '2010-05-20', 'Yes'),
-        (17, '50$ off Next Monthly Payment', '2016-07-24', 'Yes'),
-        (17, '50$ off Next Monthly Payment', '2007-10-25', 'Yes'),
-        (17, '50$ off Next Monthly Payment', '2003-12-10', 'Yes'),
-        (17, '50$ off Next Monthly Payment','2017-05-12', 'No'),
-        (94, 'Free Oil Change', '2012-06-13', 'Yes'),
-        (94, 'Free Oil Change', '2017-05-10', 'No')
+INSERT INTO ReferralBenefitHistory VALUES
+	(17, '50$ off Next Monthly Payment', '2012-05-10', 'Yes'),
+	(17, '50$ off Next Monthly Payment', '2010-05-20', 'Yes'),
+	(17, '50$ off Next Monthly Payment', '2016-07-24', 'Yes'),
+	(17, '50$ off Next Monthly Payment', '2007-10-25', 'Yes'),
+	(17, '50$ off Next Monthly Payment', '2003-12-10', 'Yes'),
+	(17, '50$ off Next Monthly Payment','2017-05-12', 'No'),
+	(94, 'Free Oil Change', '2012-06-13', 'Yes'),
+	(94, 'Free Oil Change', '2017-05-10', 'No')
 ;
 
 INSERT INTO Steady
@@ -123,14 +124,14 @@ INSERT INTO ZIPLocation
 	('07093', 'West New York', 'NJ'),
 	('07501', 'Paterson', 'NJ'),
 	('44256', 'Medina', 'OH'),
-        ('92683', 'Westminster', 'CA'),
-        ('90840', 'Long Beach', 'CA'),
-        ('92620', 'Irvine', 'CA'),
-        ('95209', 'Stockton', 'CA'),
-        ('90210', 'Beverly Hills', 'CA'),
-        ('92840', 'Garden Grove', 'CA'),
-        ('91950', 'National City', 'CA'),
-        ('90265', 'Malibu', 'CA')
+    ('92683', 'Westminster', 'CA'),
+    ('90840', 'Long Beach', 'CA'),
+    ('92620', 'Irvine', 'CA'),
+    ('95209', 'Stockton', 'CA'),
+    ('90210', 'Beverly Hills', 'CA'),
+    ('92840', 'Garden Grove', 'CA'),
+    ('91950', 'National City', 'CA'),
+    ('90265', 'Malibu', 'CA')
 ;
 
 INSERT INTO Address
@@ -254,12 +255,12 @@ INSERT INTO MasteryLevel
 
 INSERT INTO Skillset
     VALUES
-        ('Oil & filter', 'Oil and filter change'),
-        ('Tire rotation', 'Tire rotation'),
-        ('Tire balancing', 'Tire balancing'),
-        ('Freon exchange', 'Flush freon from air conditioning system and replace'),
-        ('Brake rotor resurfacing', 'Resurfacing the brake rotors'),
-        ('Brake fluid flush', 'Flush brake fluid from system and replace'),
+	('Oil & filter', 'Oil and filter change'),
+	('Tire rotation', 'Tire rotation'),
+	('Tire balancing', 'Tire balancing'),
+	('Freon exchange', 'Flush freon from air conditioning system and replace'),
+	('Brake rotor resurfacing', 'Resurfacing the brake rotors'),
+	('Brake fluid flush', 'Flush brake fluid from system and replace'),
 	('Engine fixer', 'Fix the engine in cars'),
 	('Transmission fixer', 'Fix tranmission related issue'),
 	('Computer Technician', 'Fix computer in car')
@@ -267,20 +268,20 @@ INSERT INTO Skillset
 
 INSERT INTO SkillsetLine
     VALUES
-        (1, 'Oil & filter', 3),
-        (1, 'Tire rotation', 10),
+    (1, 'Oil & filter', 3),
+    (1, 'Tire rotation', 10),
 	(1, 'Tire balancing',2),
-        (2, 'Brake fluid flush', 7),
-        (3, 'Brake rotor resurfacing', 2),
+    (2, 'Brake fluid flush', 7),
+    (3, 'Brake rotor resurfacing', 2),
 	(3, 'Computer Technician', 2),
-        (4, 'Tire balancing', 4),
+    (4, 'Tire balancing', 4),
 	(4, 'Computer Technician', 10),
-        (5, 'Freon exchange', 10),
-        (6, 'Engine fixer', 1),
+    (5, 'Freon exchange', 10),
+    (6, 'Engine fixer', 1),
 	(6, 'Oil & filter', 5),
-        (6, 'Tire rotation', 1),
+    (6, 'Tire rotation', 1),
 	(6, 'Tire balancing',3),
-        (10, 'Oil & filter', 10),
+    (10, 'Oil & filter', 10),
 	(10,'Engine fixer',5),
 	(10,'Transmission fixer',3)
 ;
@@ -314,8 +315,7 @@ INSERT INTO MaintainItem values
     (16, 'Brake rotor resurfacing', 'Resurface rotors', 20.00, 50.00, 8)
 ;
 
-<<<<<<< HEAD
-	INSERT into ItemWork values 
+INSERT into ItemWork values 
 	(3, 1 ,'2017-5-12'),
 	(4, 2 ,'2017-5-11'),
 	(5, 2 ,'2011-5-13'),
@@ -341,8 +341,32 @@ INSERT INTO MaintainItem values
 	(10, 12 ,'2012-5-15'),
 	(11, 12 ,'2011-5-16'),
 	(12, 12, '2010-5-17');
-	
-	INSERT into JobQueueLine values 
+	(13, 1 ,'2017-5-12'),
+	(14, 1 ,'2017-5-11'),
+	(13, 2 ,'2011-5-13'),
+	(14, 2 ,'2012-5-14'),
+	(13, 3 ,'2013-5-15'),
+	(14, 3 ,'2014-5-16'),
+	(13, 4 ,'2015-5-17'),
+	(14, 4 ,'2016-5-18'),
+	(13, 5 ,'2017-5-19'),
+	(14, 5 ,'2017-5-11'),
+	(13, 6 ,'2016-5-12'),
+	(14, 6, '2015-5-13'),
+	(13, 7 ,'2014-5-14'),
+	(14, 7 ,'2013-5-15'),
+	(13, 8, '2012-5-16'),
+	(14, 8 ,'2011-5-17'),
+	(13, 9, '2010-5-18'),
+	(14, 9 ,'2017-5-19'),
+	(13, 10 ,'2016-5-11'),
+	(14, 10 ,'2015-5-12'),
+	(13, 11 ,'2014-5-13'),
+	(14, 11 ,'2013-5-14'),
+	(13, 12 ,'2012-5-15'),
+	(14, 12 ,'2011-5-16')
+;
+INSERT into JobQueueLine values 
 	(3, 1 ,'2017-5-12'),
 	(4, 2 ,'2017-5-11'),
 	(5, 2 ,'2011-5-13'),
@@ -368,4 +392,28 @@ INSERT INTO MaintainItem values
 	(10, 2 ,'2012-5-15'),
 	(11, 3 ,'2011-5-16'),
 	(12, 4, '2010-5-17');
-
+	(13, 1 ,'2017-5-12'),
+	(14, 2 ,'2017-5-11'),
+	(13, 3 ,'2011-5-13'),
+	(14, 4 ,'2012-5-14'),
+	(13, 5 ,'2013-5-15'),
+	(14, 6 ,'2014-5-16'),
+	(13, 10,'2015-5-17'),
+	(14, 1 ,'2016-5-18'),
+	(13, 2 ,'2017-5-19'),
+	(14, 3 ,'2017-5-11'),
+	(13, 4 ,'2016-5-12'),
+	(14, 5, '2015-5-13'),
+	(13, 6 ,'2014-5-14'),
+	(14, 10,'2013-5-15'),
+	(13, 1, '2012-5-16'),
+	(14, 2 ,'2011-5-17'),
+	(13, 3, '2010-5-18'),
+	(14, 4 ,'2017-5-19'),
+	(13, 05 ,'2016-5-11'),
+	(14, 06 ,'2015-5-12'),
+	(13, 10 ,'2014-5-13'),
+	(14, 01 ,'2013-5-14'),
+	(13, 02 ,'2012-5-15'),
+	(14, 03 ,'2011-5-16')
+;
