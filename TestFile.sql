@@ -9,7 +9,10 @@ UNION select cFirstName, cLastName,'Steady'as Category, (2017-YEAR(c4.cJoinedDat
 create view Customer_addresses_v as 
 select cFirstName,cLastName,'Invidual' as Catageory, aType, aAddress, zZIPCode from Address left outer join Customer on Address.cID=Customer.cID GROUP by Address.cID Having count(Address.cID)=1
 UNION 
-select cFirstName,cLastName,'Corporation' as Catageory, aType, aAddress, zZIPCode from Address left outer join Customer on Address.cID=Customer.cID GROUP by Address.cID Having count(Address.cID)>1;
+select c.cFirstName,c.cLastName,'Corporation' as Catageory, a.aType, a.aAddress, a.zZIPCode from Address a left outer join Customer c on a.cID=c.cID
+where a.cID in (select c1.cID from Address a1
+left outer join Customer c1 on a1.cID=c1.cID GROUP BY c1.cFirstName HAVING COUNT(a1.cID)>1 );
+
 -- 3.	Mechanic_mentor_v – reports all of the mentor/mentee relationships at Dave’s, sorted by the name of the mentor, then the name of the mentee.
 --Add start date
 create view Mechanic_metor_v as
