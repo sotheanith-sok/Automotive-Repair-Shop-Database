@@ -257,9 +257,9 @@ INSERT INTO Skillset
         ('Freon exchange', 'Flush freon from air conditioning system and replace'),
         ('Brake rotor resurfacing', 'Resurfacing the brake rotors'),
         ('Brake fluid flush', 'Flush brake fluid from system and replace'),
-		('Engine fixer', 'Fix the engine in cars'),
-		('Transmission fixer', 'Fix tranmission related issue'),
-		('Computer Technician', 'Fix computer in car')
+	('Engine fixer', 'Fix the engine in cars'),
+	('Transmission fixer', 'Fix tranmission related issue'),
+	('Computer Technician', 'Fix computer in car')
 ;
 
 INSERT INTO SkillsetLine
@@ -269,9 +269,9 @@ INSERT INTO SkillsetLine
 	(1, 'Tire balancing',2),
         (2, 'Brake fluid flush', 7),
         (3, 'Brake rotor resurfacing', 2),
-		(3,	'Computer Technician', 2),
+	(3, 'Computer Technician', 2),
         (4, 'Tire balancing', 4),
-		(4,	'Computer Technician', 10),
+	(4, 'Computer Technician', 10),
         (5, 'Freon exchange', 10),
         (6, 'Engine fixer', 1),
 	(6, 'Oil & filter', 5),
@@ -284,8 +284,8 @@ INSERT INTO SkillsetLine
 
 INSERT INTO TrainingSkill
     VALUES
-        (1, 2, '2015-05-04', '2015-05-30', 'frying eggs'),
-        (5, 3, '2001-09-11', '2001-09-11', 'flying planes'),
-        (6, 10, '2014-05-05', '2014-06-30', 'making enchiladas'),
-        (4, 10, '2005-04-23', '2005-07-04', 'baking cakes')
+        (1, 2, '2015-05-04', '2015-05-30', 'Oil & filter'),
+        (5, 3, '2001-09-11', '2001-09-11', 'Freon exchange'),
+        (6, 10, '2014-05-05', '2014-06-30', 'Tire rotation'),
+        (4, 10, '2005-04-23', '2005-07-04', 'Tire balancing')
 ;
