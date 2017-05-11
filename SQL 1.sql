@@ -228,6 +228,6 @@ CREATE TABLE MaintainPackageLine (
 	mpID 	INT NOT NULL,
 	PRIMARY KEY (moID, mpID),
 	FOREIGN KEY (moID) REFERENCES MaintainOrder (moID),
-	FOREIGN KEY (mpID) REFERENCES MaintainItem (mpID)
+	FOREIGN KEY (mpID) REFERENCES MaintainPackage (mpID)
 );
 
