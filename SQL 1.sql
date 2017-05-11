@@ -144,7 +144,8 @@ CREATE TABLE TrainingSkill (
     tsSkillTrained  VARCHAR(42),
     PRIMARY KEY (tsTrainerID, tsTraineeID, tsStartDate, tsEndDate),
     FOREIGN KEY (tsTrainerID) REFERENCES Mechanic (eID),
-    FOREIGN KEY (tsTraineeID) REFERENCES Mechanic (eID)
+    FOREIGN KEY (tsTraineeID) REFERENCES Mechanic (eID),
+	FOREIGN KEY (tsSkillTrained) REFERENCES Skillset (ssName)
 );
 
 CREATE TABLE MasteryLevel (
