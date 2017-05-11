@@ -214,7 +214,6 @@ CREATE TABLE ItemWork(
 	PRIMARY KEY (miID, moID),
 	FOREIGN KEY (miID) REFERENCES MaintainItem(miID),
 	FOREIGN KEY (moID) REFERENCES MaintainOrder (moID)
-	
 );
 
 CREATE TABLE JobQueueLine(
