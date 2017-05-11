@@ -197,7 +197,7 @@ CREATE TABLE MaintainOrder (
 
 CREATE TABLE MaintainItem(
 	miID INT NOT NULL,
-	miSkill INT NOT NULL,
+	miSkill VARCHAR (20) NOT NULL,
 	miName VARCHAR (50),
 	miBuyInPrice DECIMAL (10,2) UNSIGNED,
 	miCost	DECIMAL(10,2) UNSIGNED,
