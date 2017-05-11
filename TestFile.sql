@@ -42,9 +42,9 @@ select cFirstName as Firstname, cLastName as Lastname, cPhoneNumber as Phonenumb
 select cFirstName as Firstname, cLastName as Lastname, cPhoneNumber as Phonenumber, cEmail as Email, 'Prospective' as Category from Prospective natural join Customer;
 
 -- 2.	For each service visit, list the total cost to the customer for that visit.
-select c.cFirstName as Firstname,c.cLastName as Lastname, mo.moID as RecipeID, sum(mi.miCost) as TotalCost from Customer c inner join Steady s on c.cID=s.cID right outer join Vehicle v on s.cID=v.cID right outer join 
-MaintainOrder mo on v.vVIN=mo.vVIN right outer join ItemWork iw on mo.moID=iw.moID left outer join MaintainItem mi on iw.miID=mi.miID where c.cID in (select s1.cID from
-Steady s1) group by mo.moID; 
+select c.cFirstName as Firstname,c.cLastName as Lastname, mo.moID as RecipeID, sum(mi.miCost) as TotalCost from Customer c  
+right outer join Vehicle v on c.cID=v.cID right outer join 
+MaintainOrder mo on v.vVIN=mo.vVIN right outer join ItemWork iw on mo.moID=iw.moID left outer join MaintainItem mi on iw.miID=mi.miID group by mo.moID; 
 
 -- 3.	List the top three customers in terms of their net spending for the past two years, and the total that they have spent in that period.
 select f.Firstname, f.Lastname, f.TotalSpent from(
@@ -101,11 +101,11 @@ select p.cID as PremierCustomerID,count(p.cID)*50 as DiscountAmmount from Custom
 '2015-12-31' AND '2016-12-31' group by p.cID) t on t.PremierCustomerID=p1.cID order by (p1.pAnnualFee*12-(IFNULL(t.DiscountAmmount,0)))Desc limit 3;
 
 -- 12.	List the five model, make, and year that have caused the most visits on average to Dave’s automotive per vehicle in the past three years, along with the average number of visits per vehicle.
-select vf.vfModel as Model, vf.vfYear as Year, vf.vfMake as Maker, count(CONCAT(vf.vfModel, vf.vfYear)) as 
-NumberVisited from ItemWork iw left outer join MaintainOrder mo on iw.moID = mo.moID left outer join Vehicle v on mo.vVIN=v.vVIN 
-left outer join VehicleFamily vf on vf.vfID=v.vfID
-where iw.iwDate>'2013-12-31' group by CONCAT(vf.vfModel, vf.vfYear) order by count(CONCAT(vf.vfModel, vf.vfYear)) DESC limit 5;
-
+select vf.vfModel as Model, vf.vfYear as Year, vf.vfMake as Maker, count(CONCAT(vf.vfModel,vf.vfMake, vf.vfYear)) as 
+NumberVisited from  MaintainOrder mo left outer join Vehicle v on mo.vVIN=v.vVIN 
+left outer join VehicleFamily vf on vf.vfID=v.vfID 
+where mo.moID in (select i.moID from ItemWork i where i.iwDate>'2013-12-31')  group by CONCAT(vf.vfModel,vf.vfMake, vf.vfYear) order by count(CONCAT(vf.vfModel,vf.vfMake, vf.vfYear)) 
+DESC limit 5;
 -- 13.	Find the mechanic who is mentoring the most other mechanics.  List the skills that the mechanic is passing along to the other mechanics.
 select ts.tsSkillTrained as Skill, e.eName as TrainerName from TrainingSkill ts left outer join Employee e on ts.tsTrainerID=e.eID where ts.tsTrainerID=(
 select t.ID from (select ts1.tsTrainerID as ID, count(ts1.tsTrainerID) as Total from TrainingSkill ts1 group by ts1.tsTrainerID)as t order by t.Total desc limit 1);
