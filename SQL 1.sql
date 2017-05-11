@@ -177,8 +177,8 @@ CREATE TABLE AppointmentStatus (
 CREATE TABLE Appointment (
 	vVIN	CHAR(17) NOT NULL,
 	aDate	DATE,
-	aTime	TIMESTAMP,
-	aExpectedTime TIMESTAMP,
+	aTime	TIME,
+	aExpectedTime TIME,
 	aStatus	VARCHAR(42),
 	PRIMARY KEY (vVIN, aDate),
 	FOREIGN KEY (aStatus) REFERENCES AppointmentStatus (aStatus),
