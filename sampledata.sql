@@ -2,7 +2,11 @@ INSERT INTO MaintainPackage
 VALUES
     (1, 'Engine Check Package', 'Investigate engine issues'),
     (2, 'ECU Check', 'Investigate ECU corruptions or faults'),
-    (3, 'Transmission Check Package', 'Investigate transmission issues')
+    (3, 'Transmission Check Package', 'Investigate transmission issues'),
+	(4, 'Oil Check Package', 'Investigate oil related issues'),
+	(5, 'Airconditioner Check Package', 'Investigate airconditioner issues'),
+	(6, 'Wheel Check Package', 'Investigate tire issues'),
+	(7, 'Basic Maintain Package','Rountine Service such as normal oil change, tire aligments, and fluid check.')
 ;
 
 INSERT INTO AppointmentStatus
@@ -101,4 +105,16 @@ INSERT INTO Address values
 	(17,'Workplace','17042','65 Bayberry Street'),
 	(17,'Warehouse','17042','8320 West Border Ave.'),
 	(94,'Workplace','16001','225 Pawnee Ave.')
+;
+INSERT INTO Vehicle values 
+	('4T1BF3EK3AU552262','2695616',17,'6732',7,378),
+	('1FTHF25H1PNA40810','14840',94,'11528',7,488),
+	('1GNSC5EC8FR580741','102606',57,'7698',7,906),
+	('2B4GP44R3XR290659','493285',17,'12512',7,920),
+	('1FMYU04161KF01101','476524',24,'11164',7,118),
+	('1FTSF31F22E716686','33290',42,'9073',7,488),
+	('2FZACFCT44AN00194','118918',17,'13031',7,378),
+	('1FMCU0G97DUC71489','193113',94,'9427',7,118),
+	('WA1VFAFL1DA140855','230357',57,'7934',7,378),
+	('1GC2CVCG1CZ106012','228538',42,'14124',7,378)
 ;
