@@ -133,3 +133,15 @@ INSERT INTO Appointment values
 	('2FZACFCT44AN00194','2017-06-21','10:00:00','0:15:00','FUTURE'),
 	('1FMCU0G97DUC71489','2017-06-17','11:30:00','0:30:00','FUTURE')
 ;
+INSERT INTO Employee values
+(1,'Seyyed Ortzi', 17, '2001-05-4'),
+(2,'Sead Huey', 12, '2002-12-24'),
+(3,'Clive Finnagán', 12.57, '2010-07-21'),
+(4,'Nerses Teobaldo', 18.42, '2004-1-15'),
+(5,'Stuart Evaristo', 20.47, '2001-7-2'),
+(6,'Filip Ermanno', 19.77, '2009-8-2'),
+(7,'Hüseyn Kay', 30.78, '2001-5-27'),
+(8,'Andro Pere', 25.97, '2003-7-26'),
+(9,'Evgeny Octave', 31.44, '2001-2-28'),
+(10,'Aeron Amariah', 22.00, '2003-3-25')
+;
