@@ -47,17 +47,19 @@ INSERT INTO Prospective
         (101, 'Steve Rogers', TRUE),
         (100, 'Kara Danvers', FALSE)
 ;
-INSERT INTO PromotionContact values 
+INSERT INTO PromotionContact
+    VALUES
 	(1,'2010-12-01','10:12:00','Email'),
 	(1,'2005-01-10','1:15:00','Phone Call'),
 	(1,'2007-08-12','5:00:00','Email'),
 	(5,'2014-05-15','1:00:00','Email'),
 	(5,'2012-07-17','3:30:00','Phone Call'),
 	(55,'2017-05-9','10:12:00','Email'),
-        (101, '2008-05-02', 'Email'),
-        (101, '2010-05-07', 'Phone Call'),
-        (101, '2013-05-03', 'Email'
-	;
+        (101, '2008-05-02', '13:37:00', 'Email'),
+        (101, '2010-05-07', '17:01:00', 'Phone Call'),
+        (101, '2013-05-03', '12:00:00', 'Email')
+;
+
 INSERT INTO Current values
 	(17,'2000-01-01'),
 	(94,'2010-05-05'),
