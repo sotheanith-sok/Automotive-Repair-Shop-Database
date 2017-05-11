@@ -203,7 +203,8 @@ CREATE TABLE MaintainItem(
 	miCost	DECIMAL(10,2) UNSIGNED,
 	mpID INT NOT NULL,
 	PRIMARY KEY (miID),
-	FOREIGN KEY (mpID) REFERENCES MaintainPackage (mpID)	
+	FOREIGN KEY (mpID) REFERENCES MaintainPackage (mpID),
+	FOREIGN KEY (miSkill) REFERENCES Skillset (ssName)
 );
 
 CREATE TABLE ItemWork(
