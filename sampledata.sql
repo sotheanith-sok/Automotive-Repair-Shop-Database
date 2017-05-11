@@ -1,8 +1,8 @@
 INSERT INTO MaintainPackage
-VALUES
-    (1, 'Engine Check Package', 'Investigate engine issues'),
-    (2, 'ECU Check', 'Investigate ECU corruptions or faults'),
-    (3, 'Transmission Check Package', 'Investigate transmission issues'),
+    VALUES
+        (1, 'Engine Check Package', 'Investigate engine issues'),
+        (2, 'ECU Check', 'Investigate ECU corruptions or faults'),
+        (3, 'Transmission Check Package', 'Investigate transmission issues'),
 	(4, 'Oil Check Package', 'Investigate oil related issues'),
 	(5, 'Airconditioner Check Package', 'Investigate airconditioner issues'),
 	(6, 'Wheel Check Package', 'Investigate tire issues'),
@@ -10,34 +10,42 @@ VALUES
 ;
 
 INSERT INTO AppointmentStatus
-VALUES
-    ('FUTURE'),
-    ('APPOINTMENT KEPT'),
-    ('CANCELLED')
+    VALUES
+        ('FUTURE'),
+        ('APPOINTMENT KEPT'),
+        ('CANCELLED')
 ;
 
 INSERT INTO CommunicationType
-VALUES
-    ('Email'),
-    ('Phone Call')
+    VALUES
+        ('Email'),
+        ('Phone Call')
 ;
 
 INSERT INTO Customer
-VALUES
-    (50, 'Timmy', 'Carder', '1982-09-22', '329-323-4512', 'nottheprez@gmail.com'),
-    (42, 'Haddam', 'Sussein', '1967-11-01', '323-315-9695', 'bestkingevar@gmail.com'),
-    (24, 'Matoi', 'Ryuko', '1997-01-02', '928-888-8251', 'sailorclothes@gmail.com'),
-    (57, 'Celino', 'Barnes', '1983-08-15', '800-888-8888', 'injuryatturnyfam@hotmail.com'),
-    (94, 'Imi', 'Mopkins', '1965-03-02', '123-456-7890', 'reelprufessurlelz@gmail.com'),
-    (17, 'Rolph', 'Ormond', '1898-04-10', '202-555-0123', 'RolphOrmond@gmail.com'),
-    (5, 'Moïse', 'Gundahar', '1975-08-25', '202-555-0110', 'MoïseGundahar@gmail.com'),
-    (55, 'Arminius', 'Donat', '1982-03-21', '803-261-8908', 'ArminiusDonat@gmail.com'),
-    (1, 'Sukarno', 'Nadir', '1957-12-12', '513-455-3891', 'SukarnoNadir@gmail.com')
+    VALUES
+        (50, 'Timmy', 'Carder', '1982-09-22', '329-323-4512', 'nottheprez@gmail.com'),
+        (42, 'Haddam', 'Sussein', '1967-11-01', '323-315-9695', 'bestkingevar@gmail.com'),
+        (24, 'Matoi', 'Ryuko', '1997-01-02', '928-888-8251', 'sailorclothes@gmail.com'),
+        (57, 'Celino', 'Barnes', '1983-08-15', '800-888-8888', 'injuryatturnyfam@hotmail.com'),
+        (94, 'Imi', 'Mopkins', '1965-03-02', '123-456-7890', 'reelprufessurlelz@gmail.com'),
+        (17, 'Rolph', 'Ormond', '1898-04-10', '202-555-0123', 'RolphOrmond@gmail.com'),
+        (5, 'Moïse', 'Gundahar', '1975-08-25', '202-555-0110', 'MoïseGundahar@gmail.com'),
+        (55, 'Arminius', 'Donat', '1982-03-21', '803-261-8908', 'ArminiusDonat@gmail.com'),
+        (1, 'Sukarno', 'Nadir', '1957-12-12', '513-455-3891', 'SukarnoNadir@gmail.com'),
+        (100, 'J\'onn', 'J\'onzz', '1955-11-15', '619-555-4156', 'jjonzz@deo.gov'),
+        (101, 'Tony', 'Stark', '1970-05-29', '212-555-4164', 'tony@stark.com'),
+        (102, 'Ami', 'Mizuno', '1978-09-10', '657-555-5156', 'amimizuno@geocities.com'),
+        (103, 'Selina', 'Kyle', '1986-03-15', '212-555-4235', 'selinakyle@yahoo.com'),
+        (104, 'Bruce', 'Wayne', '1975-04-29', '212-555-2346', 'bwayne@wayneenterprises.com')
 ;
-INSERT INTO Prospective values
-    (1,'Timmy','1'),
-    (5,'Haddam','0'),
-    (55, 'Matoi',0)
+INSERT INTO Prospective
+    VALUES
+        (1,'Timmy','1'),
+        (5,'Haddam','0'),
+        (55, 'Matoi',0),
+        (101, 'Steve Rogers', TRUE),
+        (100, 'Kara Danvers', FALSE)
 ;
 INSERT INTO PromotionContact values 
 	(1,'2010-12-01','10:12:00','Email'),
@@ -45,7 +53,10 @@ INSERT INTO PromotionContact values
 	(1,'2007-08-12','5:00:00','Email'),
 	(5,'2014-05-15','1:00:00','Email'),
 	(5,'2012-07-17','3:30:00','Phone Call'),
-	(55,'2017-05-9','10:12:00','Email')
+	(55,'2017-05-9','10:12:00','Email'),
+        (101, '2008-05-02', 'Email'),
+        (101, '2010-05-07', 'Phone Call'),
+        (101, '2013-05-03', 'Email'
 	;
 INSERT INTO Current values
 	(17,'2000-01-01'),
