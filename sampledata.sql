@@ -251,7 +251,7 @@ INSERT INTO SkillsetLine
         (2, 'Brake fluid flush', 7),
         (3, 'Brake rotor resurfacing', 2),
         (4, 'Tire balancing', 4),
-        (5, 'Freon exchange' 10),
+        (5, 'Freon exchange', 10),
         (6, 'Tire rotation', 1),
         (10, 'Oil & filter', 10)
 ;
