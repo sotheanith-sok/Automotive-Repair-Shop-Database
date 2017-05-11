@@ -39,59 +39,72 @@ INSERT INTO Customer
         (103, 'Selina', 'Kyle', '1986-03-15', '212-555-4235', 'selinakyle@yahoo.com'),
         (104, 'Bruce', 'Wayne', '1975-04-29', '212-555-2346', 'bwayne@wayneenterprises.com')
 ;
+
 INSERT INTO Prospective
     VALUES
-        (1,'Timmy','1'),
-        (5,'Haddam','0'),
-        (55, 'Matoi',0),
+        (1, 'Timmy', TRUE),
+        (5, 'Haddam', FALSE),
+        (55, 'Matoi', TRUE),
         (101, 'Steve Rogers', TRUE),
         (100, 'Kara Danvers', FALSE)
 ;
+
 INSERT INTO PromotionContact
     VALUES
-	(1,'2010-12-01','10:12:00','Email'),
-	(1,'2005-01-10','1:15:00','Phone Call'),
-	(1,'2007-08-12','5:00:00','Email'),
-	(5,'2014-05-15','1:00:00','Email'),
-	(5,'2012-07-17','3:30:00','Phone Call'),
-	(55,'2017-05-9','10:12:00','Email'),
+	(1, '2010-12-01', '10:12:00', 'Email'),
+	(1, '2005-01-10', '1:15:00', 'Phone Call'),
+	(1, '2007-08-12', '5:00:00', 'Email'),
+	(5, '2014-05-15', '1:00:00', 'Email'),
+	(5, '2012-07-17', '3:30:00', 'Phone Call'),
+	(55, '2017-05-9', '10:12:00', 'Email'),
         (101, '2008-05-02', '13:37:00', 'Email'),
         (101, '2010-05-07', '17:01:00', 'Phone Call'),
         (101, '2013-05-03', '12:00:00', 'Email')
 ;
 
-INSERT INTO Current values
-	(17,'2000-01-01'),
-	(94,'2010-05-05'),
-	(57,'2005-07-20'),
-	(24,'2007-08-15'),
-	(42,'2009-10-25'),
-	(50,'2013-12-12')
+INSERT INTO Current
+    VALUES
+	(17, '2000-01-01'),
+	(94, '2010-05-05'),
+	(57, '2005-07-20'),
+	(24, '2007-08-15'),
+	(42, '2009-10-25'),
+	(50, '2013-12-12')
 ;
-INSERT INTO ReferralBenefitHistory values
-    (17,'50$ off Next Monthly Payment','2012-05-10', 'Yes'),
-    (17,'50$ off Next Monthly Payment','2010-05-20', 'Yes'),
-    (17,'50$ off Next Monthly Payment','2015-07-24', 'Yes'),
-    (17,'50$ off Next Monthly Payment','2007-10-25','Yes'),
-    (17,'50$ off Next Monthly Payment','2003-12-10','Yes'),
-    (17,'50$ off Next Monthly Payment','2017-05-12', 'No'),
-    (94, 'Free Oil Change','2012-06-13','Yes'),
-    (94, 'Free Oil Change','2017-05-10','No')
+
+INSERT INTO ReferralBenefitHistory
+    VALUES
+        (17, '50$ off Next Monthly Payment', '2012-05-10', 'Yes'),
+        (17, '50$ off Next Monthly Payment', '2010-05-20', 'Yes'),
+        (17, '50$ off Next Monthly Payment', '2015-07-24', 'Yes'),
+        (17, '50$ off Next Monthly Payment', '2007-10-25', 'Yes'),
+        (17, '50$ off Next Monthly Payment', '2003-12-10', 'Yes'),
+        (17, '50$ off Next Monthly Payment','2017-05-12', 'No'),
+        (94, 'Free Oil Change', '2012-06-13', 'Yes'),
+        (94, 'Free Oil Change', '2017-05-10', 'No')
 ;
-INSERT INTO Steady values
+
+INSERT INTO Steady
+    VALUES
 	(94, 106),
 	(57, 50)
 ;
-INSERT INTO Premier values
-	(17,198,'2017-06-12', 198.00),
-	(24, 500,'2017-12-01',50.00),
-	(42, 100,'2017-07-01',100.00),
-	(50, 268,'2017-09-01',268.00)
+
+INSERT INTO Premier
+    VALUES
+	(17, 198, '2017-06-12', 198.00),
+	(24, 500, '2017-12-01', 50.00),
+	(42, 100,'2017-07-01', 100.00),
+	(50, 268,'2017-09-01', 268.00)
 	;
-INSERT INTO PriceIncrease values
+
+INSERT INTO PriceIncrease
+    VALUES
 	(24,900, 'Total Lost Collision')
 ;
-INSERT INTO VehicleFamily values 
+
+INSERT INTO VehicleFamily
+    VALUES
 	(398,'Toyota','Camery','2015'),
 	(378,'Toyota','4Runner','2007'),
 	(488,'Toyota','Avalon','1995'),
@@ -101,14 +114,26 @@ INSERT INTO VehicleFamily values
 	(540,'Nissan','Pickup','2004'),
 	(920,'Lexus','GX470','2005')
 ;
-INSERT INTO ZIPLocation values
-    ('17042','Lebanon','PA'),
-	('16001','Butler','PA'),
-	('07093','West New York','NJ'),
-	('07501','Paterson','NJ'),
-	('44256','Medina','OH')
+
+INSERT INTO ZIPLocation
+    VALUES
+        ('17042', 'Lebanon', 'PA'),
+	('16001', 'Butler', 'PA'),
+	('07093', 'West New York', 'NJ'),
+	('07501', 'Paterson', 'NJ'),
+	('44256', 'Medina', 'OH'),
+        ('92683', 'Westminster', 'CA'),
+        ('90840', 'Long Beach', 'CA'),
+        ('92620', 'Irvine', 'CA'),
+        ('95209', 'Stockton', 'CA'),
+        ('90210', 'Beverly Hills', 'CA'),
+        ('92840', 'Garden Grove', 'CA'),
+        ('91950', 'National City', 'CA'),
+        ('90265', 'Malibu', 'CA')
 ;
-INSERT INTO Address values 
+
+INSERT INTO Address
+    VALUES
 	(17,'Home','17042','123 6th St'),
 	(94,'Home','16001','4 Goldfield Rd.'),
 	(57,'Home','07093','71 Pilgrim Avenue'),
@@ -119,7 +144,9 @@ INSERT INTO Address values
 	(17,'Warehouse','17042','8320 West Border Ave.'),
 	(94,'Workplace','16001','225 Pawnee Ave.')
 ;
-INSERT INTO Vehicle values 
+
+INSERT INTO Vehicle
+    VALUES
 	('4T1BF3EK3AU552262','2695616',17,'6732',7,378),
 	('1FTHF25H1PNA40810','14840',94,'11528',7,488),
 	('1GNSC5EC8FR580741','102606',57,'7698',7,906),
