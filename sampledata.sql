@@ -50,4 +50,14 @@ INSERT INTO Current values
 	(24,'2007-08-15'),
 	(42,'2009-10-25'),
 	(50,'2013-12-12')
-	;
+;
+INSERT INTO ReferralBenefitHistory values
+    (17,'50$ off Next Monthly Payment','2012-05-10', 'Yes'),
+    (17,'50$ off Next Monthly Payment','2010-05-20', 'Yes'),
+    (17,'50$ off Next Monthly Payment','2015-07-24', 'Yes'),
+    (17,'50$ off Next Monthly Payment','2007-10-25','Yes'),
+    (17,'50$ off Next Monthly Payment','2003-12-10','Yes'),
+    (17,'50$ off Next Monthly Payment','2017-05-12', 'No'),
+    (94, 'Free Oil Change','2012-06-13','Yes'),
+    (94, 'Free Oil Change','2017-05-10','No')
+;
