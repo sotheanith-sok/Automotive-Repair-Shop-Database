@@ -288,7 +288,9 @@ INSERT INTO TrainingSkill
         (1, 2, '2015-05-04', '2015-05-30', 'Oil & filter'),
         (5, 3, '2001-09-11', '2001-09-11', 'Freon exchange'),
         (6, 10, '2014-05-05', '2014-06-30', 'Tire rotation'),
-        (4, 10, '2005-04-23', '2005-07-04', 'Tire balancing')
+        (4, 10, '2005-04-23', '2005-07-04', 'Tire balancing'),
+		(4, 2, '2005-04-23', '2005-07-04', 'Freon exchange')
+		
 ;
 
 INSERT INTO MaintainItem values
