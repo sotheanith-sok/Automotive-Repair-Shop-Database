@@ -86,8 +86,19 @@ INSERT INTO VehicleFamily values
 ;
 INSERT INTO ZIPLocation values
     ('17042','Lebanon','PA'),
-('16001','Butler','PA'),
-('07093','West New York','NJ'),
-('07501','Paterson','NJ'),
-('44256','Medina','OH')
+	('16001','Butler','PA'),
+	('07093','West New York','NJ'),
+	('07501','Paterson','NJ'),
+	('44256','Medina','OH')
+;
+INSERT INTO Address values 
+	(17,'Home','17042','123 6th St'),
+	(94,'Home','16001','4 Goldfield Rd.'),
+	(57,'Home','07093','71 Pilgrim Avenue'),
+	(24,'Home','44256','44 Shirley Ave.'),
+	(42,'Home','07501', '70 Bowman St.'),
+	(50,'Home','07093','514 S. Magnolia St.'),
+	(17,'Workplace','17042','65 Bayberry Street'),
+	(17,'Warehouse','17042','8320 West Border Ave.'),
+	(94,'Workplace','16001','225 Pawnee Ave.')
 ;
