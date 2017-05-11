@@ -28,7 +28,7 @@ on t.tsTrainerID=m1.eID left outer join Mechanic m2 on m2.eID=t.tsTraineeID inne
 create view Premier_profits_v as 
 select c.cFirstName as FirstName, c.cLastName as LastName, sum(m.miCost) as TotalCost, (p.pAnnualFee*(2017-YEAR(c2.cJoinedDate))) as TotalMemberShipPaid from ItemWork i left outer join MaintainItem m on i.miID=m.miID left outer join MaintainOrder mo on i.moID=mo.moID 
 left outer join Vehicle v on mo.vVin=v.vVin left outer join Customer c on c.cID=v.cID left outer join Premier p on c.cID=p.cID left outer join Current c2 on 
-c2.cID=p.cID group by c.cID;
+c2.cID=p.cID where c.cID in (select p1.cID from Premier p1) group by c.cID ;
 -- 5.	Prospective_resurrection_v – List all of the prospective customers who have had three or more contacts, and for whom the most recent contact was more than a year ago.  They might be ripe for another attempt.
 create view Prospective_resurrection_v as
 select c1.cFirstName, c1.cLastName from Customer c1 inner join Prospective p1 on c1.cID=p1.cID where c1.cID NOT IN 
@@ -42,8 +42,9 @@ select cFirstName as Firstname, cLastName as Lastname, cPhoneNumber as Phonenumb
 select cFirstName as Firstname, cLastName as Lastname, cPhoneNumber as Phonenumber, cEmail as Email, 'Prospective' as Category from Prospective natural join Customer;
 
 -- 2.	For each service visit, list the total cost to the customer for that visit.
-select c.cFirstName as Firstname, c.cLastName as Lastname, mo.moID as RecipeID, sum(mi.miCost) as TotalCost from Customer c inner join Steady s on c.cID=s.cID right outer join Vehicle v on s.cID=v.cID right outer join 
-MaintainOrder mo on v.vVIN=mo.vVIN right outer join ItemWork iw on mo.moID=iw.moID left outer join MaintainItem mi on iw.miID=mi.miID group by mo.moID; 
+select c.cFirstName as Firstname,c.cLastName as Lastname, mo.moID as RecipeID, sum(mi.miCost) as TotalCost from Customer c inner join Steady s on c.cID=s.cID right outer join Vehicle v on s.cID=v.cID right outer join 
+MaintainOrder mo on v.vVIN=mo.vVIN right outer join ItemWork iw on mo.moID=iw.moID left outer join MaintainItem mi on iw.miID=mi.miID where c.cID in (select s1.cID from
+Steady s1) group by mo.moID; 
 
 -- 3.	List the top three customers in terms of their net spending for the past two years, and the total that they have spent in that period.
 select f.Firstname, f.Lastname, f.TotalSpent from(
@@ -59,20 +60,20 @@ select e.eName as MechanicName, COUNT(sk.eID) as NumberOfSkill from Employee e i
 -- 5.	Find all of the mechanics who have three or more skills in common.
 -- a.	Please give the name of each of the two mechanics sharing 3 or more skills.
 -- b.	Please make sure that any given pair of mechanics only shows up once.
-select * from SkillsetLine sk left outer join Employee e on sk.eID=e.eID;
 select t1.Employee1Name, t2.Employee2Name from (
 select e1.eName as Employee1Name, sk1.ssName as Employee1Skill from SkillsetLine sk1 left outer join Employee e1 on sk1.eID=e1.eID) as t1
  inner join (
 select e2.eName as Employee2Name, sk2.ssName as Employee2Skill from SkillsetLine sk2 left outer join Employee e2 on sk2.eID=e2.eID) as t2 
-on t1.Employee1Skill=t2.Employee2Skill where t1.Employee1Name <t2.Employee2Name HAVING Count(*)>2;
+on t1.Employee1Skill=t2.Employee2Skill where t1.Employee1Name <t2.Employee2Name group by CONCAT(t1.Employee1Name, t2.Employee2Name)
+ HAVING Count(CONCAT(t1.Employee1Name, t2.Employee2Name))>2;
 
 -- 6.	For each maintenance package, list the total cost of the maintenance package, as well as a list of all of the maintenance items within that package.
-select mi2.miID as MaintainItemName, t.MaintainPackageName as MaintainPackageName, t.TotalCostForThisPackage as TotalPackageCost from (
+select mi2.miName as MaintainItemName, t.MaintainPackageName as MaintainPackageName, t.TotalCostForThisPackage as TotalPackageCost from (
 select mi.mpID as MaintainPackageID, mp.mpName as MaintainPackageName, sum(mi.miCost) as TotalCostForThisPackage 
 from MaintainItem mi left outer join MaintainPackage mp on mi.mpID=mp.mpID GROUP by (mp.mpID)) as t right outer join MaintainItem mi2 on t.MaintainPackageID=mi2.mpID;
 
 -- 7.	Find all of those mechanics who have one or more maintenance items that they lacked one or more of the necessary skills.
-select e.eName as EmployeeName from JobQueueLine jql left outer join Employee e on jql.eID=e.eID left outer join MaintainItem mi on mi.miID=jql.miID where mi.miSkill not in (
+select DISTINCT e.eName as EmployeeName from JobQueueLine jql left outer join Employee e on jql.eID=e.eID left outer join MaintainItem mi on mi.miID=jql.miID where mi.miSkill not in (
 select sl.ssName from SkillsetLine sl where e.eID=sl.eID);
 
 -- 8.	 List the customers, sorted by the number of loyalty points that they have, from largest to smallest.
@@ -86,12 +87,13 @@ Premier p on c.cID=p.cID right outer join
 Vehicle v on p.cID=v.cID right outer join 
 MaintainOrder mo on v.vVIN=mo.vVIN right outer join 
 ItemWork iw on mo.moID=iw.moID left outer join 
-MaintainItem mi on mi.miID=iw.moID GROUP by p.cID  ORDER BY TheDifference DESC;
+MaintainItem mi on mi.miID=iw.moID where c.cID in (select p1.cID from Premier p1) GROUP by p.cID  ORDER BY TheDifference;
 
 -- 10.	Report on the steady customers based on the net profit that we have made from them over the past year, and the dollar amount of that profit, in order from the greatest to the least.
 select c.cFirstName as Firstname, c.cLastName, (SUM(mi.miCost)-SUM(mi.miBuyInPrice)) as NetProfit, ((SUM(mi.miCost)-SUM(mi.miBuyInPrice))/SUM(mi.miBuyInPrice)*100) as PercentProfit 
 from Customer c inner join Steady s on c.cID=s.cID right outer join Vehicle v on s.cID=v.cID 
-right outer join MaintainOrder mo on mo.vVIN=v.vVIN right outer join ItemWork iw on iw.moID=mo.moID left outer join MaintainItem mi on iw.miID=mi.miID GROUP by s.cID;
+right outer join MaintainOrder mo on mo.vVIN=v.vVIN right outer join ItemWork iw on iw.moID=mo.moID left outer join MaintainItem mi on iw.miID=mi.miID 
+where c.cID in (select s1.cID from Steady s1) GROUP by s.cID;
 
 -- 11.	List the three premier customers who have paid Dave’s Automotive the greatest amount in the past year, and the sum of their payments over that period.  Be sure to take into account any discounts that they have earned by referring prospective customers.
 select c1.cFirstName as Firstname, c1.cLastName as Lastname, (p1.pAnnualFee-(IFNULL(t.DiscountAmmount,0))) as TotalPaid  from Customer c1 inner join Premier p1 on c1.cID=p1.cID left outer join (
