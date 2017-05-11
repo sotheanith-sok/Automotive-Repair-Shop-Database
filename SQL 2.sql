@@ -6,9 +6,8 @@ INSERT INTO ZIPLocation
         ('95209', 'Stockton', 'CA'),
         ('90210', 'Beverly Hills', 'CA'),
         ('92840', 'Garden Grove', 'CA'),
-        ('91950', 'National City', 'CA');
-
-INSERT INTO ZIPLocation VALUES (90265, 'Malibu', 'CA');
+        ('91950', 'National City', 'CA'),
+        ('90265', 'Malibu', 'CA');
 
 INSERT INTO Customer
     VALUE
