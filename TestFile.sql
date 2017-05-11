@@ -107,7 +107,11 @@ select e.eName as Name from Employee e inner join Technician t on e.eID=t.eID in
 -- 16.	Three additional queries that demonstrate the five additional business rules.  Feel free to create additional views to support these queries if you so desire.
 -- 16.1 Show that all mastery level is beween 1 and 10 inclusive.
 select e.eName as Name, sl.ssName as Skill, sl.slMasteryLevel as MasteryLevel from SkillsetLine sl 
-left outer join Employee e on sl.eID=e.eID left outer join Skillset s on s.ssName on sl.ssName;
+left outer join Employee e on sl.eID=e.eID left outer join Skillset s on s.ssName=sl.ssName;
 -- 16.2 Referral Benefit History
+select c.cFirstName as Firstname, c.cLastName as Lastname, rbh.rBenefit as Benefit, rbh.rDate as Date, rbh.rFlag as State from 
+ReferralBenefitHistory rbh left outer join Customer c on rbh.cID=c.cID order by c.cFirstName, c.cLastName;
 
 -- 16.3 Show the TechicianMaintainPackage service and required MaintainItemPackage
+select mo.vVIN as CarVIN, mo.moID as MaintainOrderID, v.vRoutineServices as RoutineMaintainPackageID, mo.additionalServicePackage as AdditionalServicePackageID 
+from MaintainOrder mo left outer join Vehicle v on mo.vVIN=v.vVIN;
