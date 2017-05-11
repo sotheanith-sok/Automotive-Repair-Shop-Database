@@ -189,11 +189,9 @@ CREATE TABLE MaintainOrder (
 	moID INT NOT NULL,
 	vVIN CHAR(17),
 	moWrittenBy INT NOT NULL,
-	additionalServicePackage INT,
 	PRIMARY KEY (moID),
 	FOREIGN KEY (vVIN) REFERENCES Vehicle (vVIN),
 	FOREIGN KEY (moWrittenBy) REFERENCES Technician(eID),
-	FOREIGN KEY (additionalServicePackage) REFERENCES MaintainPackage(mpID)
 );
 
 CREATE TABLE MaintainItem(
