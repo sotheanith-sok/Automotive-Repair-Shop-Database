@@ -219,3 +219,17 @@ INSERT INTO MaintainOrder values
 	(11, 'WA1VFAFL1DA140855', 7),
 	(12, '1GC2CVCG1CZ106012', 9)
 ;
+INSERT INTO MaintainPackageLine values
+	(1, 2),
+	(2, 3),
+	(3, 2),
+	(4, 3),
+	(5, 4),
+	(6, 5),
+	(7, 5),
+	(8, 6),
+	(9, 1),
+	(10, 3),
+	(11, 4),
+	(12, 6)
+;
