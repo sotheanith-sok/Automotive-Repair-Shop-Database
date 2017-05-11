@@ -11,7 +11,7 @@ INSERT INTO MaintainItem values
     (10, 'Tire rotation', 'Rotate tires', 0.00, 10.00, 6),
     (11, 'Tire balancing', 'Balance tires', 0.00, 5.00, 6),
     (12, 'Tire balancing', 'Replace tires', 0.00, 200.00, 6),
-    (13, 'Oil and filter', 'Basic oil change', 30.00, 60.00, 7),
+    (13, 'Oil & filter', 'Basic oil change', 30.00, 60.00, 7),
     (14, 'Tire rotation', 'Basic tire rotation', 0.00, 10.00, 7),
     (15, 'Brake fluid flush', 'Replace brake fluid', 30.00, 40.00, 8),
     (16, 'Brake rotor resurfacing', 'Resurface rotors', 20.00, 50.00, 8)
