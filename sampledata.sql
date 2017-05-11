@@ -270,13 +270,13 @@ INSERT INTO SkillsetLine
         (3, 'Brake rotor resurfacing', 2),
         (4, 'Tire balancing', 4),
         (5, 'Freon exchange', 10),
-        (6, 'Tire rotation', 1),
+        (6, 'Engine fixer', 1),
 		(6, 'Oil & filter', 5),
         (6, 'Tire rotation', 1),
 		(6, 'Tire balancing',3),
         (10, 'Oil & filter', 10),
-		(10,'Engine fixer'),
-		(10,'Transmission fixer')
-		
+		(10,'Engine fixer',5),
+		(10,'Transmission fixer',3)
+;
 		
 ;
