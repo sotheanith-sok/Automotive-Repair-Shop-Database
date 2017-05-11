@@ -145,3 +145,17 @@ INSERT INTO Employee values
 (9,'Evgeny Octave', 31.44, '2001-2-28'),
 (10,'Aeron Amariah', 22.00, '2003-3-25')
 ;
+INSERT INTO Technician values 
+(7),
+(9),
+(8);
+INSERT INTO Mechanic values
+(1),
+(2), 
+(3), 
+(4), 
+(5), 
+(6), 
+(10)
+; 
+
