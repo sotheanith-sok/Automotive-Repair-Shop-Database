@@ -6,7 +6,8 @@ INSERT INTO MaintainPackage
 	(4, 'Oil Check Package', 'Investigate oil related issues'),
 	(5, 'Air Conditioner Check Package', 'Investigate air conditioner issues'),
 	(6, 'Wheel Check Package', 'Investigate tire issues'),
-	(7, 'Basic Maintainence Package','Rountine Service such as normal oil change, tire alignments, and fluid check.')
+	(7, 'Basic Maintainence Package','Rountine Service such as normal oil change, tire alignments, and fluid check.'),
+	(8, 'Brake Check Package', 'Investigate brake issues')
 ;
 
 INSERT INTO AppointmentStatus
