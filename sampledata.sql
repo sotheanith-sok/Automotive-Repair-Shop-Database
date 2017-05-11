@@ -74,3 +74,13 @@ INSERT INTO Premier values
 INSERT INTO PriceIncrease values
 	(24,900, 'Total Lost Collision')
 ;
+INSERT INTO VehicleFamily values 
+	(398,'Toyota','Camery','2015'),
+	(378,'Toyota','4Runner','2007'),
+	(488,'Toyota','Avalon','1995'),
+	(118,'Nissan','Altima','2017'),
+	(770,'BMW','318','2002'),
+	(906,'Nissan','Cube','2006'),
+	(540,'Nissan','Pickup','2004'),
+	(920,'Lexus','GX470','2005')
+;
