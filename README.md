@@ -8,7 +8,7 @@ Modeling the database of an imaginary automotive repair shop using SQL.
  - [Java](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)
  
 ## Authors
- - [Sotheanith Sok](https://github.com/sotheanith)
+ - [Sotheanith Sok](https://github.com/sotheanith-sok)
  - [Alyssa Nguyen](https://github.com/Alyssa3467)
  - [Tommy So](https://github.com/tommy8492nd)
  - [Nicholas Utz](https://github.com/utznicholas)
